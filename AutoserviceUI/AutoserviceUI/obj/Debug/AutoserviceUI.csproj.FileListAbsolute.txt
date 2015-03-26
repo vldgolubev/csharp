@@ -1,0 +1,14 @@
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceUI.exe.config
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceUI.exe
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceUI.pdb
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceCore.dll
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceCore.pdb
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.csprojResolveAssemblyReference.cache
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.MainForm.resources
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.Properties.Resources.resources
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.csproj.GenerateResource.Cache
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.exe
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.pdb
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.AdminForm.resources
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.LoginForm.resources
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\MySql.Data.dll

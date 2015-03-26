@@ -1,0 +1,7 @@
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\bin\Debug\AutoserviceCore.dll
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\bin\Debug\AutoserviceCore.pdb
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\obj\Debug\AutoserviceCore.csprojResolveAssemblyReference.cache
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\obj\Debug\AutoserviceCore.dll
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\obj\Debug\AutoserviceCore.pdb
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\bin\Debug\AutoserviceCore.dll.config
+C:\GitHub\Курсовик\AutoserviceUI\AutoserviceCore\bin\Debug\MySql.Data.dll
