@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data;
 
 namespace AutoserviceCore
 {
@@ -13,7 +14,8 @@ namespace AutoserviceCore
     {
         string GetHash(string password);
         bool InsertAdmin(string login, string password);
-        void SelectAdmins();
+        void DeleteAdmin(string id, string login);
+        DataTable GetAllAdmins();
     }
     public class Admin: Dbconnection, IAdminInterface
     {
@@ -35,10 +37,17 @@ namespace AutoserviceCore
         {
             try
             {
-                string query = string.Format("INSERT INTO admin(Login,Password) VALUES('{0}','{1}')", login, GetHash(password));
+               
                 if (this.OpenConnection() == true)
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = "INSERT INTO admin(Login,Password) VALUES(@Login,@Password)";
+                    cmd.Prepare();
+
+                    cmd.Parameters.AddWithValue("@Login", login);
+                    cmd.Parameters.AddWithValue("@Password", password);
+
                     int result = cmd.ExecuteNonQuery();
                     this.CloseConnection();
                     if (result > 0) return true;
@@ -51,25 +60,46 @@ namespace AutoserviceCore
                 return false;
             }
         }
+        public DataTable GetAllAdmins()
+        {
+            DataTable adminDt = new DataTable();
+            if (this.OpenConnection() == true)
+            {
+                
+                string query = "Select AdminID,Login FROM admin";
+                using (MySqlCommand cmd = new MySqlCommand(query,connection))
+                {
+                    MySqlDataReader dr = cmd.ExecuteReader();
+                    
+                    adminDt.Load(dr);
+                    dr.Close();
+                }
+                this.CloseConnection();
+                return adminDt;
+            }
+            return adminDt;
+        }
 
 
-        public void SelectAdmins(DataGridView dataGridView)
+        public void DeleteAdmin(string id, string login)
         {
             try
             {
-                string query = string.Format("SELECT AdminID, Login FROM admin");
                 if (this.OpenConnection() == true)
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    MySqlDataReader dr = cmd.ExecuteReader();
-                    dataGridView.DataSource = dr;
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = "DELETE FROM admin WHERE `AdminID` = @id AND `Login` = @login";
+                    cmd.Prepare();
+
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@login", login);
+                    cmd.ExecuteNonQuery();
                     this.CloseConnection();
                 }
+                } catch(Exception){
+                   MessageBox.Show("Ошибка удаления пользователя!");
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка извлечения");
-            }
-        }
     }
 }

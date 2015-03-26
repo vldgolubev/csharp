@@ -85,19 +85,19 @@
             // MarksMenuItem
             // 
             this.MarksMenuItem.Name = "MarksMenuItem";
-            this.MarksMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.MarksMenuItem.Size = new System.Drawing.Size(143, 22);
             this.MarksMenuItem.Text = "Марки";
             // 
             // ModelsMenuItem
             // 
             this.ModelsMenuItem.Name = "ModelsMenuItem";
-            this.ModelsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ModelsMenuItem.Size = new System.Drawing.Size(143, 22);
             this.ModelsMenuItem.Text = "Модели";
             // 
             // TypesMenuItem
             // 
             this.TypesMenuItem.Name = "TypesMenuItem";
-            this.TypesMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TypesMenuItem.Size = new System.Drawing.Size(143, 22);
             this.TypesMenuItem.Text = "Типы кузова";
             // 
             // MainForm
@@ -108,6 +108,7 @@
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();

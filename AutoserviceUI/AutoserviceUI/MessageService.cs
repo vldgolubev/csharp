@@ -9,12 +9,18 @@ namespace AutoserviceUI
 {
     public interface IMessageService
     {
+        DialogResult ConfirmDeleteMessageAdmin(string login);
         void ShowMessage(string message);
         void ShowExclamation(string exclamation);
         void ShowError(string error);
     }
     class MessageService : IMessageService
     {
+        public DialogResult ConfirmDeleteMessageAdmin(string login)
+        {
+            DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить пользователя с именем {0}?", login),"Удаление",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            return result;
+        }
         public void ShowMessage(string message)
         {
             MessageBox.Show(message, "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

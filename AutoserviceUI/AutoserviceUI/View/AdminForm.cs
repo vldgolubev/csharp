@@ -12,11 +12,16 @@ namespace AutoserviceUI.View
 {
     public interface IAdminForm
     {
+        string AdminID { get; set; }
         string Login { get; set; }
         string Password { get; set; }
+        void UpdateAdmin(DataTable dt);
         void CloseForm();
+        event EventHandler DataGridAdminUpdate;
         event EventHandler InsertAdminClick;
         event EventHandler CancelAdminClick;
+        event EventHandler DeleteAdminClick;
+
     }
     public partial class AdminForm : Form,IAdminForm
     {
@@ -25,18 +30,27 @@ namespace AutoserviceUI.View
             InitializeComponent();
             butInsertAdmin.Click += butInsertAdmin_Click;
             butCancelAdmin.Click += butCancelAdmin_Click;
+            this.Load += AdminForm_Load;
+            dataAdminGridView.CellContentClick += dataAdminGridView_CellContentClick;
+            butAdminDelete.Click += butAdminDelete_Click;
 
         }
 
-        void butCancelAdmin_Click(object sender, EventArgs e)
+        void butAdminDelete_Click(object sender, EventArgs e)
         {
-            if (CancelAdminClick != null) CancelAdminClick(this, EventArgs.Empty);
+            if (DeleteAdminClick != null) DeleteAdminClick(this, EventArgs.Empty);
         }
 
-        void butInsertAdmin_Click(object sender, EventArgs e)
+        void dataAdminGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (InsertAdminClick != null) InsertAdminClick(this, EventArgs.Empty);
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataAdminGridView.Rows[e.RowIndex];
+                AdminID = row.Cells["AdminID"].Value.ToString();
+                Login = row.Cells["Login"].Value.ToString();
+            }
         }
+        #region Вспомогательные функции
         public void CloseForm()
         {
             this.Close();
@@ -64,11 +78,51 @@ namespace AutoserviceUI.View
                 textPassword.Text = value;
             }
         }
+        public void UpdateAdmin(DataTable dt)
+                {
+
+                    dataAdminGridView.DataSource = dt;
+                    
+                }
+        #endregion
+        #region Проброс событий
+        void AdminForm_Load(object sender, EventArgs e)
+        {
+            if (DataGridAdminUpdate != null) DataGridAdminUpdate(this, EventArgs.Empty);
+        }
+        void butCancelAdmin_Click(object sender, EventArgs e)
+        {
+            if (CancelAdminClick != null) CancelAdminClick(this, EventArgs.Empty);
+        }
+        void butInsertAdmin_Click(object sender, EventArgs e)
+        {
+            if (InsertAdminClick != null) InsertAdminClick(this, EventArgs.Empty);
+        }
+     
         public event EventHandler InsertAdminClick;
         public event EventHandler CancelAdminClick;
+        public event EventHandler DataGridAdminUpdate;
+        public event EventHandler DeleteAdminClick;
+        #endregion
 
 
 
-       
+
+
+
+        public string AdminID
+        {
+            get
+            {
+                return textAdminID.Text;
+            }
+            set
+            {
+                textAdminID.Text = value;
+            }
+        }
+
+
+        
     }
 }
