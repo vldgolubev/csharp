@@ -12,21 +12,30 @@ namespace AutoserviceUI.View
 {
     public interface IMarkInterface
     {
+        void DataClear();
         string MarkID { get; set; }
         string MarkName { get; set; }
         string Country { get; set; }
+        void UpdateMark(DataTable dt);
         event EventHandler butInsertMarkClick;
         event EventHandler butCancelMarkClick;
         event EventHandler butDeleteMarkClick;
+        event EventHandler DataGridMarkUpdate;
     }
     public partial class MarkForm : Form, IMarkInterface
     {
         public MarkForm()
         {
             InitializeComponent();
+            this.Load += MarkForm_Load;
             butCancelMark.Click += butCancelMark_Click;
             butDeleteMark.Click += butDeleteMark_Click;
             butInsertMark.Click += butInsertMark_Click;
+        }
+
+        void MarkForm_Load(object sender, EventArgs e)
+        {
+            if (DataGridMarkUpdate != null) DataGridMarkUpdate(this, EventArgs.Empty);
         }
         #region Проброс событий
         void butInsertMark_Click(object sender, EventArgs e)
@@ -84,6 +93,19 @@ namespace AutoserviceUI.View
             }
         }
         #endregion
+        public void DataClear(){
+            MarkID = "";
+            MarkName = "";
+            Country = "";
+        }
 
+
+        public void UpdateMark(DataTable dt)
+        {
+            dataGridMark.DataSource = dt;
+        }
+
+
+        public event EventHandler DataGridMarkUpdate;
     }
 }

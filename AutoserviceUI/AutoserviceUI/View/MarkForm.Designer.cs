@@ -43,15 +43,16 @@
             // 
             // dataGridMark
             // 
+            this.dataGridMark.AllowUserToAddRows = false;
             this.dataGridMark.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMark.Location = new System.Drawing.Point(295, 12);
             this.dataGridMark.Name = "dataGridMark";
-            this.dataGridMark.Size = new System.Drawing.Size(277, 239);
+            this.dataGridMark.Size = new System.Drawing.Size(423, 239);
             this.dataGridMark.TabIndex = 0;
             // 
             // butDeleteMark
             // 
-            this.butDeleteMark.Location = new System.Drawing.Point(476, 274);
+            this.butDeleteMark.Location = new System.Drawing.Point(643, 268);
             this.butDeleteMark.Name = "butDeleteMark";
             this.butDeleteMark.Size = new System.Drawing.Size(75, 23);
             this.butDeleteMark.TabIndex = 1;
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 323);
+            this.ClientSize = new System.Drawing.Size(730, 323);
             this.Controls.Add(this.butInsertMark);
             this.Controls.Add(this.butCancelMark);
             this.Controls.Add(this.label3);

@@ -57,6 +57,7 @@ namespace AutoserviceCore
             }
             catch (MySqlException)
             {
+                this.CloseConnection();
                 return false;
             }
         }

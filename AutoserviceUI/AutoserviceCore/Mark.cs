@@ -41,6 +41,7 @@ namespace AutoserviceCore
             }
             catch (MySqlException)
             {
+                this.CloseConnection();
                 return false;
             }
         }
@@ -73,7 +74,7 @@ namespace AutoserviceCore
         public DataTable GetAllMarks()
         {
             DataTable markDt = new DataTable();
-            if (this.CloseConnection() == true)
+            if (this.OpenConnection() == true)
             {
                 string query = "SELECT * FROM marks";
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -88,5 +89,6 @@ namespace AutoserviceCore
             }
             return markDt;
         }
+
     }
 }
