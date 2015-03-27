@@ -16,6 +16,11 @@ namespace AutoserviceUI
     }
     class MessageService : IMessageService
     {
+        public DialogResult ConfirmDeleteMark(string mark)
+        {
+            DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить марку с названием {0}?", mark), "Удаление", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            return result;
+        }
         public DialogResult ConfirmDeleteMessageAdmin(string login)
         {
             DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить пользователя с именем {0}?", login),"Удаление",MessageBoxButtons.YesNo,MessageBoxIcon.Question);

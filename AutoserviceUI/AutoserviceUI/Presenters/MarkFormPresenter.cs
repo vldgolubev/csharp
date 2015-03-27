@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoserviceCore;
+using System.Windows.Forms;
 
 namespace AutoserviceUI.Presenters
 {
@@ -54,12 +55,24 @@ namespace AutoserviceUI.Presenters
 
         void _view_butDeleteMarkClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_view.MarkName == "" || _view.MarkID == "")
+            {
+                _messageService.ShowMessage("Пожалуйста, выберите марку!");
+                return;
+            }
+            DialogResult result = _messageService.ConfirmDeleteMark(_view.MarkName);
+            if (result == DialogResult.Yes)
+            {
+                _manageMark.DeleteMark(_view.MarkID, _view.MarkName);
+                _messageService.ShowMessage(string.Format("Марка, с названием {0} удалена!",_view.MarkName));
+                _view.DataClear();
+            }
         }
+
 
         void _view_butCancelMarkClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _view.CloseForm();
         }
     }
 }

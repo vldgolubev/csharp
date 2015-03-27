@@ -16,6 +16,7 @@ namespace AutoserviceUI.View
         string MarkID { get; set; }
         string MarkName { get; set; }
         string Country { get; set; }
+        void CloseForm();
         void UpdateMark(DataTable dt);
         event EventHandler butInsertMarkClick;
         event EventHandler butCancelMarkClick;
@@ -31,6 +32,18 @@ namespace AutoserviceUI.View
             butCancelMark.Click += butCancelMark_Click;
             butDeleteMark.Click += butDeleteMark_Click;
             butInsertMark.Click += butInsertMark_Click;
+            dataGridMark.CellContentClick += dataGridMark_CellContentClick;
+        }
+
+        void dataGridMark_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridMark.Rows[e.RowIndex];
+                MarkID = row.Cells["MarkID"].Value.ToString();
+                MarkName = row.Cells["MarkName"].Value.ToString();
+                Country = row.Cells["Country"].Value.ToString();
+            }
         }
 
         void MarkForm_Load(object sender, EventArgs e)
@@ -107,5 +120,11 @@ namespace AutoserviceUI.View
 
 
         public event EventHandler DataGridMarkUpdate;
+
+
+        public void CloseForm()
+        {
+            this.Close();
+        }
     }
 }
