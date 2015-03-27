@@ -26,3 +26,4 @@ C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.Properties.
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.AdminForm.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.LoginForm.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.csproj.GenerateResource.Cache
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.MarkForm.resources

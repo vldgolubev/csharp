@@ -35,7 +35,11 @@ namespace AutoserviceUI
 
         void _view_MarksFormClick(object sender, EventArgs e)
         {
-            //
+            View.MarkForm form = new View.MarkForm();
+            MessageService service = new MessageService();
+            Mark markLogic = new Mark();
+            Presenters.MarkFormPresenter presenter = new Presenters.MarkFormPresenter(form, service, markLogic);
+            form.ShowDialog();
         }
 
         void _view_AdminFormClick(object sender, EventArgs e)
@@ -44,7 +48,8 @@ namespace AutoserviceUI
             MessageService service = new MessageService();
             Admin adminLogic = new Admin();
             Presenters.AdminFormPresenter presenter = new Presenters.AdminFormPresenter(form, service, adminLogic);
-            form.ShowDialog();
+            form.ShowDialog(); 
+
         }
     }
 }
