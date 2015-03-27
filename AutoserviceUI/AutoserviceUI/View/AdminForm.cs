@@ -31,7 +31,7 @@ namespace AutoserviceUI.View
             butInsertAdmin.Click += butInsertAdmin_Click;
             butCancelAdmin.Click += butCancelAdmin_Click;
             this.Load += AdminForm_Load;
-            dataAdminGridView.CellContentClick += dataAdminGridView_CellContentClick;
+            dataAdminGridView.CellClick += dataAdminGridView_CellContentClick;
             butAdminDelete.Click += butAdminDelete_Click;
 
         }

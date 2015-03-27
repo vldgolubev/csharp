@@ -32,7 +32,7 @@ namespace AutoserviceUI.View
             butCancelMark.Click += butCancelMark_Click;
             butDeleteMark.Click += butDeleteMark_Click;
             butInsertMark.Click += butInsertMark_Click;
-            dataGridMark.CellContentClick += dataGridMark_CellContentClick;
+            dataGridMark.CellClick += dataGridMark_CellContentClick;
         }
 
         void dataGridMark_CellContentClick(object sender, DataGridViewCellEventArgs e)

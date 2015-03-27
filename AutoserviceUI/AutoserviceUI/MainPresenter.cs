@@ -25,7 +25,11 @@ namespace AutoserviceUI
 
         void _view_TypesFormClick(object sender, EventArgs e)
         {
-            //
+            View.TypeModelForm form = new View.TypeModelForm();
+            MessageService service = new MessageService();
+            TypeModel typeModelLogic = new TypeModel();
+            Presenters.TypeModelFormPresenter presenter = new Presenters.TypeModelFormPresenter(form, service, typeModelLogic);
+            form.ShowDialog();
         }
 
         void _view_ModelsFormClick(object sender, EventArgs e)
