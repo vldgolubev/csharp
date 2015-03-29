@@ -15,6 +15,7 @@ namespace AutoserviceUI.View
         string TypeModelID { get; set; }
         string TypeModelName { get; set; }
         void UpdateTypeModel(DataTable dt);
+        void TypeModelFormClose();
         event EventHandler butInsertTypeModelClick;
         event EventHandler butCancelTypeModelClick;
         event EventHandler butDeleteTypeModelClick;
@@ -39,7 +40,12 @@ namespace AutoserviceUI.View
 
         void dataGridTypeModel_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          //;
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridTypeModel.Rows[e.RowIndex];
+                TypeModelID = row.Cells["TypeModelID"].Value.ToString();
+                TypeModelName = row.Cells["NameType"].Value.ToString();
+            }
         }
 
         void butInsertTypeModel_Click(object sender, EventArgs e)
@@ -95,5 +101,11 @@ namespace AutoserviceUI.View
 
 
         public event EventHandler dataGridLoad;
+
+
+        public void TypeModelFormClose()
+        {
+            this.Close();
+        }
     }
 }

@@ -143,7 +143,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminForm";
+            this.Text = "Адмиистраторы";
             ((System.ComponentModel.ISupportInitialize)(this.dataAdminGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

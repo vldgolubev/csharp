@@ -20,10 +20,15 @@ namespace AutoserviceUI.Presenters
             _messageService = service;
             _manageTypeModel = manageTypeModel;
 
-            _view.butCancelTypeModelClick += _view_butCancelTypeModelEventClick;
+            _view.butCancelTypeModelClick += _view_butCancelTypeModelClick;
             _view.butDeleteTypeModelClick += _view_butDeleteTypeModelClick;
             _view.butInsertTypeModelClick += _view_butInsertTypeModelClick;
             _view.dataGridLoad += _view_dataGridLoad;
+        }
+
+        void _view_butCancelTypeModelClick(object sender, EventArgs e)
+        {
+            _view.TypeModelFormClose();
         }
         private void UpdateTypeModelGrid()
         {
@@ -33,6 +38,7 @@ namespace AutoserviceUI.Presenters
         {
             UpdateTypeModelGrid();
         }
+        
  void _view_butInsertTypeModelClick(object sender, EventArgs e)
         {
             if (_view.TypeModelName == "")
@@ -43,18 +49,27 @@ namespace AutoserviceUI.Presenters
             if (_manageTypeModel.InsertTypeModel(_view.TypeModelName) == true)
             {
                 _messageService.ShowMessage("Новый тип кузова, добавлен!");
+                _view.TypeModelName = "";
                 UpdateTypeModelGrid();
             }
+            else _messageService.ShowExclamation("Такой тип уже существует!");
         }
 
         void _view_butDeleteTypeModelClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_view.TypeModelName == "" || _view.TypeModelID == "")
+            {
+                _messageService.ShowMessage("Пожалуйста, выберите модель!");
+                return;
+            }
+            DialogResult result = _messageService.ConfimDeleteTypeModel(_view.TypeModelName);
+            if (result == DialogResult.Yes)
+            {
+                _manageTypeModel.DeleteTypeModel(_view.TypeModelID, _view.TypeModelName);
+                _messageService.ShowMessage(string.Format("Тип кузова с названием {0} удалена!", _view.TypeModelName));
+                _view.TypeModelID = ""; _view.TypeModelName = "";
+                UpdateTypeModelGrid();
+            }
         }
-
-        void _view_butCancelTypeModelEventClick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        } 
     }
 }

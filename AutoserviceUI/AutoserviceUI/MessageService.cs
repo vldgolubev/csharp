@@ -16,6 +16,11 @@ namespace AutoserviceUI
     }
     class MessageService : IMessageService
     {
+        public DialogResult ConfimDeleteTypeModel(string model)
+        {
+            DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить тип кузова с названием {0}?", model), "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result;
+        }
         public DialogResult ConfirmDeleteMark(string mark)
         {
             DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить марку с названием {0}?", mark), "Удаление", MessageBoxButtons.YesNo,MessageBoxIcon.Question);

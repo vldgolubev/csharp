@@ -34,7 +34,12 @@ namespace AutoserviceUI
 
         void _view_ModelsFormClick(object sender, EventArgs e)
         {
-            //
+            View.ModelForm form = new View.ModelForm();
+            MessageService service = new MessageService();
+            Model ModelLogic = new Model();
+            Presenters.ModelFormPresenter presenter = new Presenters.ModelFormPresenter(form, service, ModelLogic);
+            form.ShowDialog();
+
         }
 
         void _view_MarksFormClick(object sender, EventArgs e)

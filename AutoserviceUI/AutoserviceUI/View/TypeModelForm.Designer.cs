@@ -121,7 +121,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TypeModelForm";
-            this.Text = "TypeModelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Типы кузова";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTypeModel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

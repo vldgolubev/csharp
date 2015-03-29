@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="Dbconnection.cs" />
     <Compile Include="Mark.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeModel.cs" />
   </ItemGroup>

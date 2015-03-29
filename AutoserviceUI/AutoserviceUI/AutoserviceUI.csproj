@@ -55,6 +55,7 @@
     <Compile Include="Presenters\AdminFormPresenter.cs" />
     <Compile Include="Presenters\LoginFormPresenter.cs" />
     <Compile Include="Presenters\MarkFormPresenter.cs" />
+    <Compile Include="Presenters\ModelFormPresenter.cs" />
     <Compile Include="Presenters\TypeModelFormPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="View\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\List.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

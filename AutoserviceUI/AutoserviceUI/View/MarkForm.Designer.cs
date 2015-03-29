@@ -141,7 +141,8 @@
             this.Controls.Add(this.butDeleteMark);
             this.Controls.Add(this.dataGridMark);
             this.Name = "MarkForm";
-            this.Text = "MarkForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Марки автомобилей";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
