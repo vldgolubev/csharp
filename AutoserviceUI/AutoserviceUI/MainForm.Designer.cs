@@ -36,6 +36,10 @@
             this.MarksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModelsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TypesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WoksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkCategoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorkersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +65,8 @@
             // 
             this.редактированиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AdminsMenuItem,
-            this.автомобилиToolStripMenuItem});
+            this.автомобилиToolStripMenuItem,
+            this.WoksMenuItem});
             this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
             this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.редактированиеToolStripMenuItem.Text = "Редактирование";
@@ -85,20 +90,48 @@
             // MarksMenuItem
             // 
             this.MarksMenuItem.Name = "MarksMenuItem";
-            this.MarksMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.MarksMenuItem.Size = new System.Drawing.Size(152, 22);
             this.MarksMenuItem.Text = "Марки";
             // 
             // ModelsMenuItem
             // 
             this.ModelsMenuItem.Name = "ModelsMenuItem";
-            this.ModelsMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.ModelsMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ModelsMenuItem.Text = "Модели";
             // 
             // TypesMenuItem
             // 
             this.TypesMenuItem.Name = "TypesMenuItem";
-            this.TypesMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.TypesMenuItem.Size = new System.Drawing.Size(152, 22);
             this.TypesMenuItem.Text = "Типы кузова";
+            // 
+            // WoksMenuItem
+            // 
+            this.WoksMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.WorkCategoryMenuItem,
+            this.WorksMenuItem,
+            this.WorkersMenuItem});
+            this.WoksMenuItem.Name = "WoksMenuItem";
+            this.WoksMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.WoksMenuItem.Text = "Работы";
+            // 
+            // WorkCategoryMenuItem
+            // 
+            this.WorkCategoryMenuItem.Name = "WorkCategoryMenuItem";
+            this.WorkCategoryMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.WorkCategoryMenuItem.Text = "Категории работ";
+            // 
+            // WorksMenuItem
+            // 
+            this.WorksMenuItem.Name = "WorksMenuItem";
+            this.WorksMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.WorksMenuItem.Text = "Работы";
+            // 
+            // WorkersMenuItem
+            // 
+            this.WorkersMenuItem.Name = "WorkersMenuItem";
+            this.WorkersMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.WorkersMenuItem.Text = "Работники";
             // 
             // MainForm
             // 
@@ -127,6 +160,10 @@
         private System.Windows.Forms.ToolStripMenuItem MarksMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ModelsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TypesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WoksMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WorkCategoryMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WorksMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WorkersMenuItem;
     }
 }
 

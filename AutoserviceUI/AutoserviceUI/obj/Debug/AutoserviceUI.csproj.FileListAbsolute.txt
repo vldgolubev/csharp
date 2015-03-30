@@ -23,9 +23,10 @@ C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceCore.pdb
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.csprojResolveAssemblyReference.cache
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.MainForm.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.Properties.Resources.resources
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.AdminForm.resources
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.LoginForm.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.csproj.GenerateResource.Cache
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.MarkForm.resources
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.TypeModelForm.resources
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.ModelForm.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.AdminFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.LoginFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.MarkFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.ModelFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.TypeModelFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.WorkCategoryFormView.resources
