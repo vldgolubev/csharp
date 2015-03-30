@@ -35,10 +35,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textModelName = new System.Windows.Forms.TextBox();
+            this.textVolume = new System.Windows.Forms.TextBox();
+            this.textPower = new System.Windows.Forms.TextBox();
             this.cmbTypeModel = new System.Windows.Forms.ComboBox();
+            this.butCancelModel = new System.Windows.Forms.Button();
+            this.butDeleteModel = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbMark
@@ -51,11 +55,11 @@
             // 
             // butInsertModel
             // 
-            this.butInsertModel.Location = new System.Drawing.Point(101, 206);
+            this.butInsertModel.Location = new System.Drawing.Point(60, 189);
             this.butInsertModel.Name = "butInsertModel";
             this.butInsertModel.Size = new System.Drawing.Size(75, 23);
             this.butInsertModel.TabIndex = 1;
-            this.butInsertModel.Text = "button1";
+            this.butInsertModel.Text = "Добавить";
             this.butInsertModel.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -103,26 +107,26 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Тип кузова:";
             // 
-            // textBox1
+            // textModelName
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 7;
+            this.textModelName.Location = new System.Drawing.Point(136, 57);
+            this.textModelName.Name = "textModelName";
+            this.textModelName.Size = new System.Drawing.Size(121, 20);
+            this.textModelName.TabIndex = 7;
             // 
-            // textBox2
+            // textVolume
             // 
-            this.textBox2.Location = new System.Drawing.Point(136, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 8;
+            this.textVolume.Location = new System.Drawing.Point(136, 88);
+            this.textVolume.Name = "textVolume";
+            this.textVolume.Size = new System.Drawing.Size(121, 20);
+            this.textVolume.TabIndex = 8;
             // 
-            // textBox3
+            // textPower
             // 
-            this.textBox3.Location = new System.Drawing.Point(136, 122);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 9;
+            this.textPower.Location = new System.Drawing.Point(136, 122);
+            this.textPower.Name = "textPower";
+            this.textPower.Size = new System.Drawing.Size(121, 20);
+            this.textPower.TabIndex = 9;
             // 
             // cmbTypeModel
             // 
@@ -132,15 +136,44 @@
             this.cmbTypeModel.Size = new System.Drawing.Size(121, 21);
             this.cmbTypeModel.TabIndex = 10;
             // 
+            // butCancelModel
+            // 
+            this.butCancelModel.Location = new System.Drawing.Point(182, 189);
+            this.butCancelModel.Name = "butCancelModel";
+            this.butCancelModel.Size = new System.Drawing.Size(75, 23);
+            this.butCancelModel.TabIndex = 11;
+            this.butCancelModel.Text = "Выход";
+            this.butCancelModel.UseVisualStyleBackColor = true;
+            // 
+            // butDeleteModel
+            // 
+            this.butDeleteModel.Location = new System.Drawing.Point(724, 227);
+            this.butDeleteModel.Name = "butDeleteModel";
+            this.butDeleteModel.Size = new System.Drawing.Size(75, 23);
+            this.butDeleteModel.TabIndex = 12;
+            this.butDeleteModel.Text = "Удалить";
+            this.butDeleteModel.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(263, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(536, 209);
+            this.dataGridView1.TabIndex = 13;
+            // 
             // ModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 262);
+            this.ClientSize = new System.Drawing.Size(811, 262);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.butDeleteModel);
+            this.Controls.Add(this.butCancelModel);
             this.Controls.Add(this.cmbTypeModel);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textPower);
+            this.Controls.Add(this.textVolume);
+            this.Controls.Add(this.textModelName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -150,6 +183,7 @@
             this.Controls.Add(this.cmbMark);
             this.Name = "ModelForm";
             this.Text = "ModelForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,9 +198,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textModelName;
+        private System.Windows.Forms.TextBox textVolume;
+        private System.Windows.Forms.TextBox textPower;
         private System.Windows.Forms.ComboBox cmbTypeModel;
+        private System.Windows.Forms.Button butCancelModel;
+        private System.Windows.Forms.Button butDeleteModel;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

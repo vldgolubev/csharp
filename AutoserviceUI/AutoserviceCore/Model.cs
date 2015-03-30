@@ -13,6 +13,7 @@ namespace AutoserviceCore
     {
         ArrayList GetComboMarks();
         ArrayList GetComboType();
+        bool InsertModel(int Mark, string NameModel, int Volume, int Power, int Type );
     }
     public class AddMark
     {
@@ -95,5 +96,38 @@ namespace AutoserviceCore
       return TypeModels;
   }
 
+
+
+
+  public bool InsertModel(int Mark, string NameModel, int Volume, int Power, int Type)
+  {
+      try
+      {
+          if (this.OpenConnection() == true)
+          {
+              MySqlCommand cmd = new MySqlCommand();
+              cmd.Connection = connection;
+              cmd.CommandText = "INSERT INTO models(MarkID,ModelName,Volume,Power,Type) VALUES(@Markid,@Modelname,@Volume,@Power,@Type)";
+              cmd.Prepare();
+
+              cmd.Parameters.AddWithValue("@Markid",Mark);
+              cmd.Parameters.AddWithValue("@Modelname", NameModel);
+              cmd.Parameters.AddWithValue("@Volume", Volume);
+              cmd.Parameters.AddWithValue("@Power", Power);
+              cmd.Parameters.AddWithValue("@Type", Type);
+
+              int result = cmd.ExecuteNonQuery();
+              this.CloseConnection();
+              if (result > 0) return true;
+              else return false;
+          }
+          return false;
+      }
+      catch (MySqlException)
+      {
+          this.CloseConnection();
+          return false;
+      }
+  }
     }
 }

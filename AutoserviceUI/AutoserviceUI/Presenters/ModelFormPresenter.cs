@@ -40,8 +40,19 @@ namespace AutoserviceUI.Presenters
 
         void _view_ButInsertModelClick(object sender, EventArgs e)
         {
-            
-          ///
+            if (_view.Modelname == "" || _view.Volume <= 0 || _view.Power <= 0)
+            {
+                _service.ShowError("Поля не могут быть пустыми!");
+                return;
+            }
+            if (_manageModel.InsertModel(Convert.ToInt32(_view.cmbMarkID), _view.Modelname, _view.Volume, _view.Power, Convert.ToInt32(_view.cmbTypeModelID)) == true)
+            {
+                _service.ShowMessage("Модель добавлена!");
+                _view.Modelname = ""; _view.Volume = 0; _view.Power = 0;
+
+            }
+            else _service.ShowExclamation("Такая модель уже существует!");
+ 
         }
 
     }
