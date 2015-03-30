@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,10 @@ namespace AutoserviceCore
         ArrayList GetComboMarks();
         ArrayList GetComboType();
         bool InsertModel(int Mark, string NameModel, int Volume, int Power, int Type );
+        void DeleteModel(string modelname);
+        DataTable GetAllModels();
     }
+    #region Combobox классы
     public class AddMark
     {
         private int MarkID;
@@ -51,6 +55,7 @@ namespace AutoserviceCore
             get { return NameType; }
         }
     }
+    #endregion
     public class Model : Dbconnection, IModel
     {
   public ArrayList GetComboMarks()
@@ -95,10 +100,6 @@ namespace AutoserviceCore
       }
       return TypeModels;
   }
-
-
-
-
   public bool InsertModel(int Mark, string NameModel, int Volume, int Power, int Type)
   {
       try
@@ -127,6 +128,45 @@ namespace AutoserviceCore
       {
           this.CloseConnection();
           return false;
+      }
+  }
+  public DataTable GetAllModels()
+  {
+      DataTable ModelsDt = new DataTable();
+      if (this.OpenConnection() == true)
+      {
+          string query = "SELECT ModelID,ModelName,Volume,Power,MarkName,NameType  FROM models,marks,typemodel WHERE models.MarkID = marks.MarkID AND models.Type = typemodel.TypeModelID";
+          using (MySqlCommand cmd = new MySqlCommand(query, connection))
+          {
+              MySqlDataReader dr = cmd.ExecuteReader();
+              ModelsDt.Load(dr);
+              dr.Close();
+          }
+          this.CloseConnection();
+          return ModelsDt;
+      }
+      this.CloseConnection();
+      return ModelsDt;
+  }
+  public void DeleteModel(string modelname)
+  {
+      try
+      {
+          if (this.OpenConnection() == true)
+          {
+              MySqlCommand cmd = new MySqlCommand();
+              cmd.Connection = connection;
+              cmd.CommandText = "DELETE FROM models WHERE `ModelName` = @modelname";
+              cmd.Prepare();
+
+              cmd.Parameters.AddWithValue("@modelname", modelname);
+              cmd.ExecuteNonQuery();
+              this.CloseConnection();
+          }
+      }
+      catch (Exception)
+      {
+          MessageBox.Show("Ошибка удаления пользователя!");
       }
   }
     }

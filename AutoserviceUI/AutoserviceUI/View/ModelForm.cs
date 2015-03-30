@@ -13,13 +13,16 @@ namespace AutoserviceUI.View
 {
     public interface IModelInterface
     {
+        void CloseForm();
+        void Clear();
         void cmbMarkUpdate(ArrayList arrayMarks);
         void cmbTypeModelUpdate(ArrayList arrayTypeModels);
         string cmbMarkID { get; }
         string cmbTypeModelID { get; }
         string Modelname { get; set; }
-        int Volume { get; set; }
-        int Power { get; set; }
+        string Volume { get; set; }
+        string Power { get; set; }
+        void UpdateModel(DataTable dt);
         event EventHandler ButDeleteModelClick;
         event EventHandler ButCancelModelClick;
         event EventHandler ButInsertModelClick;
@@ -37,44 +40,57 @@ namespace AutoserviceUI.View
             InitializeComponent();
             butInsertModel.Click += butInsertModel_Click;
             this.Load += ModelForm_Load;
+            butCancelModel.Click += butCancelModel_Click;
+            butDeleteModel.Click += butDeleteModel_Click;
+            dataGridModels.CellClick += dataGridModels_CellClick;
         }
 
-        
+        void dataGridModels_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridModels.Rows[e.RowIndex];
+                Modelname = row.Cells["ModelName"].Value.ToString();
+                Volume = row.Cells["Volume"].Value.ToString();
+                Power = row.Cells["Power"].Value.ToString();
+            }
+        }
+        #region IModel проброс событий
+        void butDeleteModel_Click(object sender, EventArgs e)
+        {
+            if (ButDeleteModelClick != null) ButDeleteModelClick(this, EventArgs.Empty);
+        }
 
+        void butCancelModel_Click(object sender, EventArgs e)
+        {
+            if (ButCancelModelClick != null) ButCancelModelClick(this, EventArgs.Empty);
+        }
+        void ModelForm_Load(object sender, EventArgs e)
+            {
+                if (UpdateGridModel != null) UpdateGridModel(this, EventArgs.Empty);
+                if (UpdateMarkLoadForm != null) UpdateMarkLoadForm(this, EventArgs.Empty);
+                if (UpdateTypeModelLoadForm != null) UpdateTypeModelLoadForm(this, EventArgs.Empty);
+            }
+        void butInsertModel_Click(object sender, EventArgs e)
+            {
+                if (ButInsertModelClick != null) ButInsertModelClick(this, EventArgs.Empty);
+            }
+        public event EventHandler ButInsertModelClick;
+        public event EventHandler UpdateMarkLoadForm;
+        public event EventHandler UpdateTypeModelLoadForm;
+        public event EventHandler ButDeleteModelClick;
+        public event EventHandler ButCancelModelClick;
+        public event EventHandler UpdateGridModel;
+#endregion
+        #region IModel аксессоры и очистка
         public string cmbMarkID
         {
-            get { return cmbMark.SelectedValue.ToString(); }
+            get { return cmbMark.SelectedValue.ToString();}
         }
         public string cmbTypeModelID
         {
             get { return cmbTypeModel.SelectedValue.ToString(); }
         }
-        void ModelForm_Load(object sender, EventArgs e)
-        {
-            if (UpdateMarkLoadForm != null) UpdateMarkLoadForm(this, EventArgs.Empty);
-            if (UpdateTypeModelLoadForm != null) UpdateTypeModelLoadForm(this, EventArgs.Empty);
-        }
-        public void cmbMarkUpdate(ArrayList arrayMarks)
-        {
-            cmbMark.DataSource = arrayMarks;
-            cmbMark.DisplayMember = "MarkName";
-            cmbMark.ValueMember = "MarkID";
-        }
-        public void cmbTypeModelUpdate(ArrayList arrayTypeModels)
-        {
-            cmbTypeModel.DataSource = arrayTypeModels;
-            cmbTypeModel.DisplayMember = "NameType";
-            cmbTypeModel.ValueMember = "TypeModelID";
-        }
-        void butInsertModel_Click(object sender, EventArgs e)
-        {
-            if (ButInsertModelClick != null) ButInsertModelClick(this, EventArgs.Empty);
-        }
-        public event EventHandler ButInsertModelClick;
-        public event EventHandler UpdateMarkLoadForm;
-        public event EventHandler UpdateTypeModelLoadForm;
-
-
         public string Modelname
         {
             get
@@ -87,32 +103,71 @@ namespace AutoserviceUI.View
             }
         }
 
-        public int Volume
+        public string Volume
         {
             get
             {
-                return Convert.ToInt32(textVolume.Text);
+              return textVolume.Text;
             }
             set
             {
-                textVolume.Text = value.ToString();
+                textVolume.Text = value;
             }
         }
 
-        public int Power
+        public string Power
         {
             get
             {
-                return Convert.ToInt32(textPower.Text);
+                return textPower.Text;
             }
             set
             {
-                textPower.Text = value.ToString();
+                textPower.Text = value;
             }
         }
+        public void Clear()
+            {
+                textModelName.Text = "";
+                textPower.Text = "";
+                textVolume.Text = "";
+            }
+        #endregion
 
-        public event EventHandler ButDeleteModelClick;
-        public event EventHandler ButCancelModelClick;
-        public event EventHandler UpdateGridModel;
+        public void cmbTypeModelUpdate(ArrayList arrayTypeModels)
+        {
+            cmbTypeModel.DataSource = arrayTypeModels;
+            cmbTypeModel.DisplayMember = "NameType";
+            cmbTypeModel.ValueMember = "TypeModelID";
+        }
+        public void cmbMarkUpdate(ArrayList arrayMarks)
+        {
+            cmbMark.DataSource = arrayMarks;
+            cmbMark.DisplayMember = "MarkName";
+            cmbMark.ValueMember = "MarkID";
+        }
+        
+        public void UpdateModel(DataTable dt)
+        {
+            dataGridModels.DataSource = dt;
+            dataGridModels.Columns[0].HeaderText = "Идентификатор";
+            dataGridModels.Columns[1].HeaderText = "Название модели";
+            dataGridModels.Columns[2].HeaderText = "Объем двигателя";
+            dataGridModels.Columns[3].HeaderText = "Мощьность двигателя";
+            dataGridModels.Columns[4].HeaderText = "Марка";
+            dataGridModels.Columns[5].HeaderText = "Тип кузова";
+        }
+        public void CloseForm()
+        {
+            this.Close();
+        }
+        
+        
+        
+        
+
+
+
+        
     }
 }

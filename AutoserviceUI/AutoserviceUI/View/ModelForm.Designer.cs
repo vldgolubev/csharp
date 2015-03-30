@@ -41,13 +41,15 @@
             this.cmbTypeModel = new System.Windows.Forms.ComboBox();
             this.butCancelModel = new System.Windows.Forms.Button();
             this.butDeleteModel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridModels = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModels)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbMark
             // 
             this.cmbMark.FormattingEnabled = true;
+            this.cmbMark.Items.AddRange(new object[] {
+            "Выберите марку"});
             this.cmbMark.Location = new System.Drawing.Point(136, 24);
             this.cmbMark.Name = "cmbMark";
             this.cmbMark.Size = new System.Drawing.Size(121, 21);
@@ -147,27 +149,28 @@
             // 
             // butDeleteModel
             // 
-            this.butDeleteModel.Location = new System.Drawing.Point(724, 227);
+            this.butDeleteModel.Location = new System.Drawing.Point(847, 227);
             this.butDeleteModel.Name = "butDeleteModel";
             this.butDeleteModel.Size = new System.Drawing.Size(75, 23);
             this.butDeleteModel.TabIndex = 12;
             this.butDeleteModel.Text = "Удалить";
             this.butDeleteModel.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridModels
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(263, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(536, 209);
-            this.dataGridView1.TabIndex = 13;
+            this.dataGridModels.AllowUserToAddRows = false;
+            this.dataGridModels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridModels.Location = new System.Drawing.Point(263, 12);
+            this.dataGridModels.Name = "dataGridModels";
+            this.dataGridModels.Size = new System.Drawing.Size(659, 209);
+            this.dataGridModels.TabIndex = 13;
             // 
             // ModelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 262);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(934, 262);
+            this.Controls.Add(this.dataGridModels);
             this.Controls.Add(this.butDeleteModel);
             this.Controls.Add(this.butCancelModel);
             this.Controls.Add(this.cmbTypeModel);
@@ -182,8 +185,9 @@
             this.Controls.Add(this.butInsertModel);
             this.Controls.Add(this.cmbMark);
             this.Name = "ModelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModelForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModels)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,6 +208,6 @@
         private System.Windows.Forms.ComboBox cmbTypeModel;
         private System.Windows.Forms.Button butCancelModel;
         private System.Windows.Forms.Button butDeleteModel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridModels;
     }
 }

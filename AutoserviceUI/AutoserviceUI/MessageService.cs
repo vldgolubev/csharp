@@ -9,6 +9,7 @@ namespace AutoserviceUI
 {
     public interface IMessageService
     {
+        DialogResult ConfimDeleteModel(string modelName);
         DialogResult ConfirmDeleteMessageAdmin(string login);
         void ShowMessage(string message);
         void ShowExclamation(string exclamation);
@@ -16,6 +17,11 @@ namespace AutoserviceUI
     }
     class MessageService : IMessageService
     {
+        public DialogResult ConfimDeleteModel(string modelName)
+        {
+            DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить модель автомобиля с названием {0}?",modelName), "Удаление", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            return result;
+        }
         public DialogResult ConfimDeleteTypeModel(string model)
         {
             DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить тип кузова с названием {0}?", model), "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
