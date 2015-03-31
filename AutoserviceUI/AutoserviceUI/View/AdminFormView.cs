@@ -82,6 +82,8 @@ namespace AutoserviceUI.View
                 {
 
                     dataAdminGridView.DataSource = dt;
+                    dataAdminGridView.Columns[0].HeaderText = "Индентификатор";
+                    dataAdminGridView.Columns[1].HeaderText = "Имя пользователя";
                     
                 }
         #endregion

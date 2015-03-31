@@ -101,6 +101,7 @@
             this.Controls.Add(this.txtWorkCategoryName);
             this.Controls.Add(this.label1);
             this.Name = "WorkCategoryFormView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WorkCategoryForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCategory)).EndInit();
             this.ResumeLayout(false);

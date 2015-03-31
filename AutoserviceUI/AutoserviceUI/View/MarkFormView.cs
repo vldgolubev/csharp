@@ -116,6 +116,11 @@ namespace AutoserviceUI.View
         public void UpdateMark(DataTable dt)
         {
             dataGridMark.DataSource = dt;
+            dataGridMark.Columns[0].HeaderText = "Идентификатор";
+            dataGridMark.Columns[1].HeaderText = "Название марки";
+            dataGridMark.Columns[1].Width = 140;
+            dataGridMark.Columns[1].HeaderText = "Страна";
+            dataGridMark.Columns[2].Width = 140;
         }
 
 

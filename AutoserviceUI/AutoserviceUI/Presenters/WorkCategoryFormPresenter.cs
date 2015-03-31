@@ -60,7 +60,6 @@ namespace AutoserviceUI.Presenters
             {
                 _manageWorkCategory.DeleteWorkCategory(_view.WorkCategory);
                 _messageService.ShowMessage(string.Format("Категория с названием {0} удалена!", _view.WorkCategory));
-                UpdateDataGrid();
                 _view.Clear();
             }
         }

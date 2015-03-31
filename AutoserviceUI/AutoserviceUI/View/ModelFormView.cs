@@ -152,6 +152,7 @@ namespace AutoserviceUI.View
             dataGridModels.DataSource = dt;
             dataGridModels.Columns[0].HeaderText = "Идентификатор";
             dataGridModels.Columns[1].HeaderText = "Название модели";
+            dataGridModels.Columns[1].Width = 115;
             dataGridModels.Columns[2].HeaderText = "Объем двигателя";
             dataGridModels.Columns[3].HeaderText = "Мощьность двигателя";
             dataGridModels.Columns[4].HeaderText = "Марка";

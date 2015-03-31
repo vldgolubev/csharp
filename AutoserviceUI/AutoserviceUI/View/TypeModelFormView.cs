@@ -97,6 +97,9 @@ namespace AutoserviceUI.View
         public void UpdateTypeModel(DataTable dt)
         {
             dataGridTypeModel.DataSource = dt;
+            dataGridTypeModel.Columns[0].HeaderText = "Идентификатор";
+            dataGridTypeModel.Columns[1].HeaderText = "Название кузова";
+            dataGridTypeModel.Columns[1].Width = 174;
         }
 
 

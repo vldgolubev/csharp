@@ -18,6 +18,11 @@ namespace AutoserviceUI
     }
     class MessageService : IMessageService
     {
+        public DialogResult ConfimDeleteWork(string workName)
+        {
+            DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить работу с названием {0}?", workName), "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result;
+        }
         public DialogResult ConfimDeleteWorkCategory(string categoryName)
         {
             DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить категорию с названием {0}?",categoryName), "Удаление", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
