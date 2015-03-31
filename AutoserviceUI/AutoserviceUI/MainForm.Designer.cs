@@ -40,6 +40,10 @@
             this.WorkCategoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WorksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WorkersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoClientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +70,9 @@
             this.редактированиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AdminsMenuItem,
             this.автомобилиToolStripMenuItem,
-            this.WoksMenuItem});
+            this.WoksMenuItem,
+            this.OrdersMenuItem,
+            this.ClientsMenuItem});
             this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
             this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.редактированиеToolStripMenuItem.Text = "Редактирование";
@@ -133,6 +139,33 @@
             this.WorkersMenuItem.Size = new System.Drawing.Size(166, 22);
             this.WorkersMenuItem.Text = "Работники";
             // 
+            // OrdersMenuItem
+            // 
+            this.OrdersMenuItem.Name = "OrdersMenuItem";
+            this.OrdersMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.OrdersMenuItem.Text = "Заказы";
+            // 
+            // ClientsMenuItem
+            // 
+            this.ClientsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ClientMenuItem,
+            this.AutoClientMenuItem});
+            this.ClientsMenuItem.Name = "ClientsMenuItem";
+            this.ClientsMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ClientsMenuItem.Text = "Клиенты";
+            // 
+            // ClientMenuItem
+            // 
+            this.ClientMenuItem.Name = "ClientMenuItem";
+            this.ClientMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ClientMenuItem.Text = "Клиенты";
+            // 
+            // AutoClientMenuItem
+            // 
+            this.AutoClientMenuItem.Name = "AutoClientMenuItem";
+            this.AutoClientMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AutoClientMenuItem.Text = "Автомобили";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +197,10 @@
         private System.Windows.Forms.ToolStripMenuItem WorkCategoryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WorksMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WorkersMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OrdersMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AutoClientMenuItem;
     }
 }
 

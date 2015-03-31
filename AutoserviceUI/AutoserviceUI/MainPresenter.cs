@@ -24,7 +24,10 @@ namespace AutoserviceUI
             _view.WorksTypeFormClick += _view_WorksTypeFormClick;
             _view.WorksFormClick += _view_WorksFormClick;
             _view.WorkersFormClick += _view_WorkersFormClick;
+            _view.ClientFormClick += _view_ClientFormClick;
+            _view.AutoClientFormClick += _view_AutoClientFormClick;
         }
+
 
         void _view_WorkersFormClick(object sender, EventArgs e)
         {
@@ -89,6 +92,20 @@ namespace AutoserviceUI
             Presenters.AdminFormPresenter presenter = new Presenters.AdminFormPresenter(form, service, adminLogic);
             form.ShowDialog(); 
 
+        }
+
+        void _view_AutoClientFormClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void _view_ClientFormClick(object sender, EventArgs e)
+        {
+            View.ClientFormView form = new View.ClientFormView();
+            MessageService service = new MessageService();
+            Client clientLogic = new Client();
+            Presenters.ClientFormPresenter presenter = new Presenters.ClientFormPresenter(form, service, clientLogic);
+            form.ShowDialog();
         }
     }
 }

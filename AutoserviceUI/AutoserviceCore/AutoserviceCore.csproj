@@ -50,6 +50,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>AppSettings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Client.cs" />
     <Compile Include="Dbconnection.cs" />
     <Compile Include="Mark.cs" />
     <Compile Include="Model.cs" />

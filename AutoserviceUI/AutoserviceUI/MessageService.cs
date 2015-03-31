@@ -9,6 +9,7 @@ namespace AutoserviceUI
 {
     public interface IMessageService
     {
+        DialogResult ConfimDeleteClient(string lastname, string firstname, string fathname);
         DialogResult ConfimDeleteWorker(string lastname, string firstname, string fathname);
         DialogResult ConfimDeleteWorkCategory(string categoryName);
         DialogResult ConfimDeleteModel(string modelName);
@@ -19,6 +20,11 @@ namespace AutoserviceUI
     }
     class MessageService : IMessageService
     {
+        public DialogResult ConfimDeleteClient(string lastname, string firstname, string fathname)
+        {
+            DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить клиента {0} {1} {2}?",lastname,fathname,fathname),"Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result;
+        }
         public DialogResult ConfimDeleteWorker(string lastname, string firstname, string fathname)
         {
             DialogResult result = MessageBox.Show(string.Format("Вы действительно хотите удалить рабочего {0} {1} {2}?",lastname,firstname,fathname), "Удаление", MessageBoxButtons.YesNo,MessageBoxIcon.Question);

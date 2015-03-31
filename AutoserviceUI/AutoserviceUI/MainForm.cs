@@ -19,6 +19,9 @@ namespace AutoserviceUI
         event EventHandler WorksTypeFormClick;
         event EventHandler WorksFormClick;
         event EventHandler WorkersFormClick;
+
+        event EventHandler ClientFormClick;
+        event EventHandler AutoClientFormClick;
     }
     public partial class MainForm : Form, IMainForm
     {
@@ -33,8 +36,12 @@ namespace AutoserviceUI
             WorkCategoryMenuItem.Click += WorkCategoryMenuItem_Click;
             WorksMenuItem.Click += WorksMenuItem_Click;
             WorkersMenuItem.Click += WorkersMenuItem_Click;
+            ClientMenuItem.Click += ClientMenuItem_Click;
+            AutoClientMenuItem.Click += AutoClientMenuItem_Click;
 
         }
+
+  
 
         #region MainForm Events
         void WorkersMenuItem_Click(object sender, EventArgs e)
@@ -69,7 +76,18 @@ namespace AutoserviceUI
         {
             if (AdminFormClick != null) AdminFormClick(this, EventArgs.Empty);
         }
+        void AutoClientMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AutoClientFormClick != null) AutoClientFormClick(this, EventArgs.Empty);
+        }
 
+        void ClientMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            if (ClientFormClick != null) ClientFormClick(this, EventArgs.Empty);
+        }
+  
+        
         public event EventHandler AdminFormClick;
         public event EventHandler ModelsFormClick;
         public event EventHandler MarksFormClick;
@@ -77,10 +95,8 @@ namespace AutoserviceUI
         public event EventHandler WorksTypeFormClick;
         public event EventHandler WorksFormClick;
         public event EventHandler WorkersFormClick;
+        public event EventHandler ClientFormClick;
+        public event EventHandler AutoClientFormClick;
         #endregion
-
-
-
-        
     }
 }
