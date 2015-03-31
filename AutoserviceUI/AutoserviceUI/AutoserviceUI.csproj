@@ -58,6 +58,7 @@
     <Compile Include="Presenters\ModelFormPresenter.cs" />
     <Compile Include="Presenters\TypeModelFormPresenter.cs" />
     <Compile Include="Presenters\WorkCategoryFormPresenter.cs" />
+    <Compile Include="Presenters\WorkersFormPresenter.cs" />
     <Compile Include="Presenters\WorksFormPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +98,12 @@
     <Compile Include="View\WorkCategoryFormView.Designer.cs">
       <DependentUpon>WorkCategoryFormView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\WorkersFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkersFormView.Designer.cs">
+      <DependentUpon>WorkersFormView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\WorksFormView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\WorkCategoryFormView.resx">
       <DependentUpon>WorkCategoryFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkersFormView.resx">
+      <DependentUpon>WorkersFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WorksFormView.resx">
       <DependentUpon>WorksFormView.cs</DependentUpon>

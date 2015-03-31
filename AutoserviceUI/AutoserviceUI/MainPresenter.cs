@@ -28,7 +28,11 @@ namespace AutoserviceUI
 
         void _view_WorkersFormClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            View.WorkersFormView form = new View.WorkersFormView();
+            MessageService service = new MessageService();
+            Workers workersLogic = new Workers();
+            Presenters.WorkersFormPresenter presenter = new Presenters.WorkersFormPresenter(form, service, workersLogic);
+            form.ShowDialog();
         }
 
         void _view_WorksFormClick(object sender, EventArgs e)
