@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoserviceCore;
+using AutoserviceUI.Presenters;
+using System.Windows.Forms;
 
 namespace AutoserviceUI
 {
@@ -30,6 +32,64 @@ namespace AutoserviceUI
             _view.AutoClientFormClick += _view_AutoClientFormClick;
             _view.OrdersFormClick += _view_OrdersFormClick;
             _view.LoadMainFromEvent += _view_LoadMainFromEvent;
+            _view.UpdateCmbWorkerEvent += _view_UpdateCmbWorkerEvent;
+            _view.ChoiceAutoSearch += _view_ChoiceAutoSearch;
+        }
+
+        void _view_ChoiceAutoSearch(object sender, EventArgs e)
+        {
+           if (_view.RadioNumberChecked == true)
+           {
+               if (_view.Search != "")
+               {
+                   SearchAutoView form = new SearchAutoView("NumberAuto", _view.Search);
+                   MessageService messageService = new MessageService();
+                   SearchAuto manageSerch = new SearchAuto();
+                   SearchAutoFormPresenter presenter = new SearchAutoFormPresenter(form, messageService, manageSerch);
+                   if (form.ShowDialog() == DialogResult.OK)
+                   {
+                       _view.SerchValue = form.AutoSelectedID.ToString();
+                       _view.SelectedAuto = form.Selectedautoname;
+                   }
+               }
+           }
+                    
+           if (_view.RadioLastNameChecked == true)
+           {
+               if (_view.Search != "")
+               {
+                   SearchAutoView form = new SearchAutoView("LastName", _view.Search);
+                   MessageService messageService = new MessageService();
+                   SearchAuto manageSerch = new SearchAuto();
+                   SearchAutoFormPresenter presenter = new SearchAutoFormPresenter(form, messageService, manageSerch);
+                   if (form.ShowDialog() == DialogResult.OK)
+                   {
+                       _view.SerchValue = form.AutoSelectedID.ToString();
+                       _view.SelectedAuto = form.Selectedautoname;
+                   }
+               }
+           }
+            if (_view.RadioPassportNumberChecked == true)
+           {
+               if (_view.Search != "")
+               {
+                   SearchAutoView form = new SearchAutoView("PassportName", _view.Search);
+                   MessageService messageService = new MessageService();
+                   SearchAuto manageSerch = new SearchAuto();
+                   SearchAutoFormPresenter presenter = new SearchAutoFormPresenter(form, messageService, manageSerch);
+                   if (form.ShowDialog() == DialogResult.OK)
+                   {
+                       _view.SerchValue = form.AutoSelectedID.ToString();
+                       _view.SelectedAuto = form.Selectedautoname;
+                   }
+               }
+           }
+        }
+
+
+        void _view_UpdateCmbWorkerEvent(object sender, EventArgs e)
+        {
+            _view.UpdateCmbWorker(_mainManager.WorkersList());
         }
 
         void _view_LoadMainFromEvent(object sender, EventArgs e)

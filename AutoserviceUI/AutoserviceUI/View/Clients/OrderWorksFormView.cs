@@ -103,9 +103,9 @@ namespace AutoserviceUI.View
         { 
             dataGridOrderWorks.DataSource = dt;
             dataGridOrderWorks.Columns[0].Visible = false;
-            dataGridOrderWorks.Columns[1].HeaderText = "Мастер";
+            dataGridOrderWorks.Columns[1].HeaderText = "Автомобиль";
             dataGridOrderWorks.Columns[1].Width = 170;
-            dataGridOrderWorks.Columns[2].HeaderText = "Автомобиль";
+            dataGridOrderWorks.Columns[2].HeaderText = "Мастер";
             dataGridOrderWorks.Columns[2].Width = 170;
             dataGridOrderWorks.Columns[3].HeaderText = "Услуга";
             dataGridOrderWorks.Columns[3].Width = 362;

@@ -58,6 +58,7 @@
     <Compile Include="Model.cs" />
     <Compile Include="OrderWorks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchAuto.cs" />
     <Compile Include="TypeModel.cs" />
     <Compile Include="Workers.cs" />
     <Compile Include="Works.cs" />

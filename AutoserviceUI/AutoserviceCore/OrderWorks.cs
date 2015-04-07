@@ -92,7 +92,7 @@ namespace AutoserviceCore
                 using (MySqlCommand cmd = new MySqlCommand())
                 {
                     cmd.Connection = connection;
-                    cmd.CommandText = "SELECT ow.OrderWorkID, CONCAT(w.WorkerFn,' ',w.WorkerLn) AS Worker, CONCAT(mark.MarkName,' ',m.ModelName) AS Auto,wrk.WorkName, wrk.WorkCost FROM orderworks AS ow JOIN orders AS o ON ow.OrderID = o.OrderID JOIN workers AS w ON o.WorkerID = w.WorkerID JOIN works AS wrk ON wrk.WorkID = ow.WorkID JOIN ownercars AS owncars ON owncars.OwnerCarID = o.OwnerCarID JOIN models AS m ON m.ModelID = owncars.ModelID JOIN marks AS mark ON m.MarkID = mark.MarkID WHERE ow.OrderID =@orderid";
+                    cmd.CommandText = "SELECT ow.OrderWorkID, CONCAT(mark.MarkName,' ',m.ModelName) AS Auto,CONCAT(w.WorkerFn,' ',w.WorkerLn) AS Worker,wrk.WorkName, wrk.WorkCost FROM orderworks AS ow JOIN orders AS o ON ow.OrderID = o.OrderID JOIN workers AS w ON o.WorkerID = w.WorkerID JOIN works AS wrk ON wrk.WorkID = ow.WorkID JOIN ownercars AS owncars ON owncars.OwnerCarID = o.OwnerCarID JOIN models AS m ON m.ModelID = owncars.ModelID JOIN marks AS mark ON m.MarkID = mark.MarkID WHERE ow.OrderID =@orderid";
                     cmd.Prepare();
 
                     cmd.Parameters.AddWithValue("@orderid",orderid);
@@ -112,7 +112,7 @@ namespace AutoserviceCore
             
                 if (this.OpenConnection() == true)
                 {
-                    string query = "SELECT ow.OrderWorkID, CONCAT(w.WorkerFn,' ',w.WorkerLn) AS Worker, CONCAT(mark.MarkName,' ',m.ModelName) AS Auto,wrk.WorkName, wrk.WorkCost FROM orderworks AS ow JOIN orders AS o ON ow.OrderID = o.OrderID JOIN workers AS w ON o.WorkerID = w.WorkerID JOIN works AS wrk ON wrk.WorkID = ow.WorkID JOIN ownercars AS owncars ON owncars.OwnerCarID = o.OwnerCarID JOIN models AS m ON m.ModelID = owncars.ModelID JOIN marks AS mark ON m.MarkID = mark.MarkID";
+                    string query = "SELECT ow.OrderWorkID, CONCAT(mark.MarkName,' ',m.ModelName) AS Auto,CONCAT(w.WorkerFn,' ',w.WorkerLn) AS Worker,wrk.WorkName, wrk.WorkCost FROM orderworks AS ow JOIN orders AS o ON ow.OrderID = o.OrderID JOIN workers AS w ON o.WorkerID = w.WorkerID JOIN works AS wrk ON wrk.WorkID = ow.WorkID JOIN ownercars AS owncars ON owncars.OwnerCarID = o.OwnerCarID JOIN models AS m ON m.ModelID = owncars.ModelID JOIN marks AS mark ON m.MarkID = mark.MarkID";
                  using (MySqlCommand cmd = new MySqlCommand(query, connection))
                  {
                      MySqlDataReader dr = cmd.ExecuteReader();
