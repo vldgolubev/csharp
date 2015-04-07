@@ -11,11 +11,13 @@ namespace AutoserviceUI
     {
         private readonly IMainForm _view;
         private readonly IMessageService _messageService;
+        private readonly IMainInterface _mainManager;
 
-        public MainPresenter(IMainForm view, IMessageService messageService)
+        public MainPresenter(IMainForm view, IMessageService messageService,IMainInterface mainManager)
         {
             _view = view;
             _messageService = messageService;
+            _mainManager = mainManager;
 
             _view.AdminFormClick += _view_AdminFormClick;
             _view.MarksFormClick += _view_MarksFormClick;
@@ -26,6 +28,22 @@ namespace AutoserviceUI
             _view.WorkersFormClick += _view_WorkersFormClick;
             _view.ClientFormClick += _view_ClientFormClick;
             _view.AutoClientFormClick += _view_AutoClientFormClick;
+            _view.OrdersFormClick += _view_OrdersFormClick;
+            _view.LoadMainFromEvent += _view_LoadMainFromEvent;
+        }
+
+        void _view_LoadMainFromEvent(object sender, EventArgs e)
+        {
+            _view.UncompleteOrdersCount(_mainManager.CountUncompleteOrders());
+        }
+
+        void _view_OrdersFormClick(object sender, EventArgs e)
+        {
+            View.OrderWorksFormView form = new View.OrderWorksFormView();
+            MessageService service = new MessageService();
+            OrderWorks orderManage = new OrderWorks();
+            Presenters.OrderWorksFormPresenter presenter = new Presenters.OrderWorksFormPresenter(form, service, orderManage);
+            form.ShowDialog();
         }
 
 
@@ -96,9 +114,15 @@ namespace AutoserviceUI
 
         void _view_AutoClientFormClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            View.CarsFormView form = new View.CarsFormView();
+            MessageService service = new MessageService();
+            Cars carsLogic = new Cars();
+            Presenters.CarsFormPresenter presenter = new Presenters.CarsFormPresenter(form, service, carsLogic);
+            form.ShowDialog();
         }
-
+/// <summary>
+/// Событие вызова формы View.Clients.ClientFormView
+/// </summary>
         void _view_ClientFormClick(object sender, EventArgs e)
         {
             View.ClientFormView form = new View.ClientFormView();

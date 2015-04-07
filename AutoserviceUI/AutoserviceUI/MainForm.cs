@@ -19,9 +19,11 @@ namespace AutoserviceUI
         event EventHandler WorksTypeFormClick;
         event EventHandler WorksFormClick;
         event EventHandler WorkersFormClick;
-
+        event EventHandler OrdersFormClick;
         event EventHandler ClientFormClick;
         event EventHandler AutoClientFormClick;
+        event EventHandler LoadMainFromEvent;
+        void UncompleteOrdersCount(int count);
     }
     public partial class MainForm : Form, IMainForm
     {
@@ -38,7 +40,19 @@ namespace AutoserviceUI
             WorkersMenuItem.Click += WorkersMenuItem_Click;
             ClientMenuItem.Click += ClientMenuItem_Click;
             AutoClientMenuItem.Click += AutoClientMenuItem_Click;
+            OrdersMenuItem.Click += OrdersMenuItem_Click;
+            this.Load += MainForm_Load;
 
+        }
+
+        void MainForm_Load(object sender, EventArgs e)
+        {
+            if (LoadMainFromEvent != null) LoadMainFromEvent(this,EventArgs.Empty);
+        }
+
+        void OrdersMenuItem_Click(object sender, EventArgs e)
+        {
+            if (OrdersFormClick != null) OrdersFormClick(this, EventArgs.Empty);
         }
 
   
@@ -86,8 +100,8 @@ namespace AutoserviceUI
             
             if (ClientFormClick != null) ClientFormClick(this, EventArgs.Empty);
         }
-  
-        
+
+        public event EventHandler OrdersFormClick;
         public event EventHandler AdminFormClick;
         public event EventHandler ModelsFormClick;
         public event EventHandler MarksFormClick;
@@ -98,5 +112,14 @@ namespace AutoserviceUI
         public event EventHandler ClientFormClick;
         public event EventHandler AutoClientFormClick;
         #endregion
+
+
+        public event EventHandler LoadMainFromEvent;
+
+
+        public void UncompleteOrdersCount(int count)
+        {
+            toolCountUncompleteOrders.Text = count.ToString();
+        }
     }
 }

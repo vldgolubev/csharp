@@ -33,3 +33,5 @@ C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.WorkCa
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.WorksFormView.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.WorkersFormView.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.ClientFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.CarsFormView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.OrderWorksFormView.resources

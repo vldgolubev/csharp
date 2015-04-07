@@ -1,0 +1,7 @@
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\bin\Release\AutoserviceCore.dll.config
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\bin\Release\AutoserviceCore.dll
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\bin\Release\AutoserviceCore.pdb
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\bin\Release\MySql.Data.dll
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\obj\Release\AutoserviceCore.csprojResolveAssemblyReference.cache
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\obj\Release\AutoserviceCore.dll
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\obj\Release\AutoserviceCore.pdb

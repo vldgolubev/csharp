@@ -44,7 +44,11 @@
             this.ClientsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoClientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolCountUncompleteOrders = new System.Windows.Forms.ToolStripStatusLabel();
             this.menu.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -96,19 +100,19 @@
             // MarksMenuItem
             // 
             this.MarksMenuItem.Name = "MarksMenuItem";
-            this.MarksMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.MarksMenuItem.Size = new System.Drawing.Size(143, 22);
             this.MarksMenuItem.Text = "Марки";
             // 
             // ModelsMenuItem
             // 
             this.ModelsMenuItem.Name = "ModelsMenuItem";
-            this.ModelsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ModelsMenuItem.Size = new System.Drawing.Size(143, 22);
             this.ModelsMenuItem.Text = "Модели";
             // 
             // TypesMenuItem
             // 
             this.TypesMenuItem.Name = "TypesMenuItem";
-            this.TypesMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TypesMenuItem.Size = new System.Drawing.Size(143, 22);
             this.TypesMenuItem.Text = "Типы кузова";
             // 
             // WoksMenuItem
@@ -157,20 +161,43 @@
             // ClientMenuItem
             // 
             this.ClientMenuItem.Name = "ClientMenuItem";
-            this.ClientMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ClientMenuItem.Size = new System.Drawing.Size(144, 22);
             this.ClientMenuItem.Text = "Клиенты";
             // 
             // AutoClientMenuItem
             // 
             this.AutoClientMenuItem.Name = "AutoClientMenuItem";
-            this.AutoClientMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AutoClientMenuItem.Size = new System.Drawing.Size(144, 22);
             this.AutoClientMenuItem.Text = "Автомобили";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolCountUncompleteOrders});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 411);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1198, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(215, 17);
+            this.toolStripStatusLabel1.Text = "Количество не выполненных заказов:";
+            // 
+            // toolCountUncompleteOrders
+            // 
+            this.toolCountUncompleteOrders.Name = "toolCountUncompleteOrders";
+            this.toolCountUncompleteOrders.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1198, 262);
+            this.ClientSize = new System.Drawing.Size(1198, 433);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
             this.Name = "MainForm";
@@ -178,6 +205,8 @@
             this.Text = "Автосервис";
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +230,9 @@
         private System.Windows.Forms.ToolStripMenuItem ClientsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClientMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AutoClientMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolCountUncompleteOrders;
     }
 }
 

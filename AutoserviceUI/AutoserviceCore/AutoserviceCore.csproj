@@ -50,10 +50,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>AppSettings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Cars.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Dbconnection.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Mark.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="OrderWorks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeModel.cs" />
     <Compile Include="Workers.cs" />

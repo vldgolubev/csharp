@@ -53,14 +53,16 @@
     <Compile Include="MainPresenter.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="Presenters\AdminFormPresenter.cs" />
-    <Compile Include="Presenters\ClientFormPresenter.cs" />
+    <Compile Include="Presenters\Auto\CarsFormPresenter.cs" />
+    <Compile Include="Presenters\Clients\ClientFormPresenter.cs" />
     <Compile Include="Presenters\LoginFormPresenter.cs" />
-    <Compile Include="Presenters\MarkFormPresenter.cs" />
-    <Compile Include="Presenters\ModelFormPresenter.cs" />
-    <Compile Include="Presenters\TypeModelFormPresenter.cs" />
-    <Compile Include="Presenters\WorkCategoryFormPresenter.cs" />
-    <Compile Include="Presenters\WorkersFormPresenter.cs" />
-    <Compile Include="Presenters\WorksFormPresenter.cs" />
+    <Compile Include="Presenters\Auto\MarkFormPresenter.cs" />
+    <Compile Include="Presenters\Auto\ModelFormPresenter.cs" />
+    <Compile Include="Presenters\Clients\OrderWorksFormPresenter.cs" />
+    <Compile Include="Presenters\Auto\TypeModelFormPresenter.cs" />
+    <Compile Include="Presenters\Works\WorkCategoryFormPresenter.cs" />
+    <Compile Include="Presenters\Works\WorkersFormPresenter.cs" />
+    <Compile Include="Presenters\Works\WorksFormPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AdminFormView.cs">
@@ -69,10 +71,16 @@
     <Compile Include="View\AdminFormView.Designer.cs">
       <DependentUpon>AdminFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ClientFormView.cs">
+    <Compile Include="View\Auto\CarsFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ClientFormView.Designer.cs">
+    <Compile Include="View\Auto\CarsFormView.Designer.cs">
+      <DependentUpon>CarsFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Clients\ClientFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Clients\ClientFormView.Designer.cs">
       <DependentUpon>ClientFormView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginFormView.cs">
@@ -81,40 +89,46 @@
     <Compile Include="View\LoginFormView.Designer.cs">
       <DependentUpon>LoginFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MarkFormView.cs">
+    <Compile Include="View\Auto\MarkFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MarkFormView.Designer.cs">
+    <Compile Include="View\Auto\MarkFormView.Designer.cs">
       <DependentUpon>MarkFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ModelFormView.cs">
+    <Compile Include="View\Auto\ModelFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ModelFormView.Designer.cs">
+    <Compile Include="View\Auto\ModelFormView.Designer.cs">
       <DependentUpon>ModelFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\TypeModelFormView.cs">
+    <Compile Include="View\Clients\OrderWorksFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\TypeModelFormView.Designer.cs">
+    <Compile Include="View\Clients\OrderWorksFormView.Designer.cs">
+      <DependentUpon>OrderWorksFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Auto\TypeModelFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Auto\TypeModelFormView.Designer.cs">
       <DependentUpon>TypeModelFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WorkCategoryFormView.cs">
+    <Compile Include="View\Works\WorkCategoryFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\WorkCategoryFormView.Designer.cs">
+    <Compile Include="View\Works\WorkCategoryFormView.Designer.cs">
       <DependentUpon>WorkCategoryFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WorkersFormView.cs">
+    <Compile Include="View\Works\WorkersFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\WorkersFormView.Designer.cs">
+    <Compile Include="View\Works\WorkersFormView.Designer.cs">
       <DependentUpon>WorkersFormView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WorksFormView.cs">
+    <Compile Include="View\Works\WorksFormView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\WorksFormView.Designer.cs">
+    <Compile Include="View\Works\WorksFormView.Designer.cs">
       <DependentUpon>WorksFormView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
@@ -132,28 +146,34 @@
     <EmbeddedResource Include="View\AdminFormView.resx">
       <DependentUpon>AdminFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ClientFormView.resx">
+    <EmbeddedResource Include="View\Auto\CarsFormView.resx">
+      <DependentUpon>CarsFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Clients\ClientFormView.resx">
       <DependentUpon>ClientFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginFormView.resx">
       <DependentUpon>LoginFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MarkFormView.resx">
+    <EmbeddedResource Include="View\Auto\MarkFormView.resx">
       <DependentUpon>MarkFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ModelFormView.resx">
+    <EmbeddedResource Include="View\Auto\ModelFormView.resx">
       <DependentUpon>ModelFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\TypeModelFormView.resx">
+    <EmbeddedResource Include="View\Clients\OrderWorksFormView.resx">
+      <DependentUpon>OrderWorksFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Auto\TypeModelFormView.resx">
       <DependentUpon>TypeModelFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WorkCategoryFormView.resx">
+    <EmbeddedResource Include="View\Works\WorkCategoryFormView.resx">
       <DependentUpon>WorkCategoryFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WorkersFormView.resx">
+    <EmbeddedResource Include="View\Works\WorkersFormView.resx">
       <DependentUpon>WorkersFormView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WorksFormView.resx">
+    <EmbeddedResource Include="View\Works\WorksFormView.resx">
       <DependentUpon>WorksFormView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -175,6 +195,7 @@
       <Name>AutoserviceCore</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
