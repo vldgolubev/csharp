@@ -12,11 +12,6 @@ C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.p
 C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.AdminForm.resources
 C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.LoginForm.resources
 C:\GitHub\Курсовик\AutoserviceUI\AutoserviceUI\bin\Debug\MySql.Data.dll
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceUI.exe.config
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.exe
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.pdb
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceUI.exe
-C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceUI.pdb
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceCore.dll
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\MySql.Data.dll
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\AutoserviceCore.pdb
@@ -36,3 +31,7 @@ C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.Client
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.CarsFormView.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.View.OrderWorksFormView.resources
 C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\AutoserviceUI.SearchAutoView.resources
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\Автосервис.exe
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Debug\Автосервис.pdb
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\Автосервис.exe
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\obj\Debug\Автосервис.pdb

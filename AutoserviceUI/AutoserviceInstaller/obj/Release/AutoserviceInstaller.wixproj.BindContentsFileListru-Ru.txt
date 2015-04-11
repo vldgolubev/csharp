@@ -1,0 +1,4 @@
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Release\Автосервис.exe
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceUI\bin\Release\Автосервис.pdb
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\bin\Release\AutoserviceCore.dll
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceCore\bin\Release\MySql.Data.dll

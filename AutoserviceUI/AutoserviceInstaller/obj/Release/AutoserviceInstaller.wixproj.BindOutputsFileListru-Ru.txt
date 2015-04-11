@@ -1,0 +1,2 @@
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceInstaller\bin\Release\ru-Ru\AutoserviceInstaller.msi
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceInstaller\bin\Release\ru-Ru\AutoserviceInstaller.wixpdb

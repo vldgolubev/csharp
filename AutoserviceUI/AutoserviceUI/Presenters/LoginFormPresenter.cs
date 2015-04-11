@@ -1,12 +1,1 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AutoserviceUI.Presenters
-{
-    class LoginFormPresenter
-    {
-    }
-}
+﻿using System;using System.Collections.Generic;using System.Linq;using System.Text;using System.Threading.Tasks;namespace AutoserviceUI.Presenters{    class LoginFormPresenter    {    }}

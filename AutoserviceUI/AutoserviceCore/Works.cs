@@ -1,73 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Windows.Forms;
-using System.Data;
-using System.Collections;
-
-namespace AutoserviceCore
-{
-    public interface IWorksInterface
-    {
-        bool InsertWork(string workname, double workcost, int workcategoryid);
+﻿using System;using System.Collections.Generic;using System.Linq;using System.Text;using System.Threading.Tasks;using MySql.Data.MySqlClient;using System.Windows.Forms;using System.Data;using System.Collections;/* Связь формы Работы с БД */namespace AutoserviceCore{    public interface IWorksInterface    {
         void DeleteWork(string workname);
-        ArrayList getComboWorksCategory();
+
         DataTable GetAllWorks();
-    }
-    public class AddWorkCategory
-    {
-        private string WorkCategoryName;
+
+        ArrayList getComboWorksCategory();
+
+        bool InsertWork(string workname, double workcost, int workcategoryid);    }    public class AddWorkCategory    {
         private int WorkCategoryID;
-        public AddWorkCategory(string workname, int catigoryid)
-        {
-            WorkCategoryName = workname;
-            WorkCategoryID = catigoryid;
-            
-        }
-        public string getWorkCategoryName
-        {
-            get { return WorkCategoryName; }
-        }
+        private string WorkCategoryName;        public AddWorkCategory(string workname, int catigoryid)        {            WorkCategoryName = workname;            WorkCategoryID = catigoryid;                    }
         public int getWorkCategoryID
         {
             get { return WorkCategoryID; }
         }
-        
-    }
-    public class Works : Dbconnection, IWorksInterface
-    {
-        public bool InsertWork(string workname, double workcost, int workcategoryid)
-        {
-            try
-            {
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connection;
-                    cmd.CommandText = "INSERT INTO works(WorkName,WorkCost,WorkCategoryID) VALUES(@workname,@workcost,@workcategoryid)";
-                    cmd.Prepare();
 
-                    cmd.Parameters.AddWithValue("@workname", workname);
-                    cmd.Parameters.AddWithValue("@workcost", workcost);
-                    cmd.Parameters.AddWithValue("@workcategoryid", workcategoryid);
-
-                    int result = cmd.ExecuteNonQuery();
-                    this.CloseConnection();
-                    if (result > 0) return true;
-                    else return false;
-                }
-                return false;
-            }
-            catch (MySqlException)
-            {
-                this.CloseConnection();
-                MessageBox.Show("Ошибка дбавления работы!");
-                return false;
-            }
-        }
+        public string getWorkCategoryName        {            get { return WorkCategoryName; }        }    }    public class Works : Dbconnection, IWorksInterface    {
         public void DeleteWork(string workname)
         {
             try
@@ -96,7 +42,7 @@ namespace AutoserviceCore
             if (this.OpenConnection() == true)
             {
                 string query = "SELECT WorkName,WorkCost, WorkCategoryName FROM works,workcategory WHERE works.WorkCategoryID = workcategory.WorkCategoryID";
-                using(MySqlCommand cmd = new MySqlCommand(query,connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
                     MySqlDataReader dr = cmd.ExecuteReader();
                     WorksDt.Load(dr);
@@ -105,9 +51,10 @@ namespace AutoserviceCore
                 this.CloseConnection();
                 return WorksDt;
             }
-            
+
             return WorksDt;
         }
+
         public ArrayList getComboWorksCategory()
         {
             ArrayList WorksCategory = new ArrayList();
@@ -119,13 +66,13 @@ namespace AutoserviceCore
                     MySqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        WorksCategory.Add(new AddWorkCategory(dr.GetString(1),dr.GetInt32(0)));
+                        WorksCategory.Add(new AddWorkCategory(dr.GetString(1), dr.GetInt32(0)));
                     }
                 }
                 this.CloseConnection();
                 return WorksCategory;
             }
-             return WorksCategory;
+            return WorksCategory;
         }
-    }
-}
+
+        public bool InsertWork(string workname, double workcost, int workcategoryid)        {            try            {                if (this.OpenConnection() == true)                {                    MySqlCommand cmd = new MySqlCommand();                    cmd.Connection = connection;                    cmd.CommandText = "INSERT INTO works(WorkName,WorkCost,WorkCategoryID) VALUES(@workname,@workcost,@workcategoryid)";                    cmd.Prepare();                    cmd.Parameters.AddWithValue("@workname", workname);                    cmd.Parameters.AddWithValue("@workcost", workcost);                    cmd.Parameters.AddWithValue("@workcategoryid", workcategoryid);                    int result = cmd.ExecuteNonQuery();                    this.CloseConnection();                    if (result > 0) return true;                    else return false;                }                return false;            }            catch (MySqlException)            {                this.CloseConnection();                MessageBox.Show("Ошибка дбавления работы!");                return false;            }        }    }}

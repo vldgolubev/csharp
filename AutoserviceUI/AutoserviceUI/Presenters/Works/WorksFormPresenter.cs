@@ -1,36 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoserviceCore;
-using System.Windows.Forms;
-
-namespace AutoserviceUI.Presenters
-{
-    class WorksFormPresenter
-    {
-        private readonly View.IWorksInterface _view;
-        private readonly MessageService _messageService;
+﻿using System;using System.Collections.Generic;using System.Linq;using System.Text;using System.Threading.Tasks;using AutoserviceCore;using System.Windows.Forms;/* Контроллер формы работ*/namespace AutoserviceUI.Presenters{    class WorksFormPresenter    {
         private readonly IWorksInterface _manageWorks;
+        private readonly MessageService _messageService;
+        private readonly View.IWorksInterface _view;        public WorksFormPresenter(View.IWorksInterface view, MessageService messageService, IWorksInterface manageWorks)         {            _view = view;            _messageService = messageService;            _manageWorks = manageWorks;            _view.ButCancelClick += _view_ButCancelClick;            _view.ButInsertClick += _view_ButInsertClick;            _view.ButDeleteClick += _view_ButDeleteClick;            _view.UpdateGridEvent += _view_UpdateGridEvent;            _view.UpdateComboWorksEvent += _view_UpdateComboWorksEvent;        }
 
-        public WorksFormPresenter(View.IWorksInterface view, MessageService messageService, IWorksInterface manageWorks) 
+        /// <summary>
+        /// Событие, возникающее при нажатии кнопки ButCancelClick
+        /// </summary>
+        void _view_ButCancelClick(object sender, EventArgs e)
         {
-            _view = view;
-            _messageService = messageService;
-            _manageWorks = manageWorks;
-
-            _view.ButCancelClick += _view_ButCancelClick;
-            _view.ButInsertClick += _view_ButInsertClick;
-            _view.ButDeleteClick += _view_ButDeleteClick;
-            _view.UpdateGridEvent += _view_UpdateGridEvent;
-            _view.UpdateComboWorksEvent += _view_UpdateComboWorksEvent;
+            _view.CloseForm();
         }
 
-        void _view_UpdateComboWorksEvent(object sender, EventArgs e)
-        {
-            _view.UpdateCmbCaterogy(_manageWorks.getComboWorksCategory());
-        }
         /// <summary>
         /// Событие, возникающее при нажатии кнопки ButDeleteClick
         /// </summary>
@@ -51,17 +31,7 @@ namespace AutoserviceUI.Presenters
             }
 
         }
-        /// <summary>
-        /// Событие, возникающее при загрузки формы
-        /// </summary>
-        void _view_UpdateGridEvent(object sender, EventArgs e)
-        {
-            UpdateGrid();
-        }
-        private void UpdateGrid()
-        {
-            _view.UpdateWorks(_manageWorks.GetAllWorks());
-        }
+
         /// <summary>
         /// Событие, возникающее при нажатии кнопки ButInsertClick 
         /// </summary>
@@ -87,12 +57,5 @@ namespace AutoserviceUI.Presenters
                 _view.Clear();
             }
         }
-        /// <summary>
-        /// Событие, возникающее при нажатии кнопки ButCancelClick
-        /// </summary>
-        void _view_ButCancelClick(object sender, EventArgs e)
-        {
-            _view.CloseForm();
-        }
-    }
-}
+
+        void _view_UpdateComboWorksEvent(object sender, EventArgs e)        {            _view.UpdateCmbCaterogy(_manageWorks.getComboWorksCategory());        }        /// <summary>        /// Событие, возникающее при загрузки формы        /// </summary>        void _view_UpdateGridEvent(object sender, EventArgs e)        {            UpdateGrid();        }        private void UpdateGrid()        {            _view.UpdateWorks(_manageWorks.GetAllWorks());        }    }}

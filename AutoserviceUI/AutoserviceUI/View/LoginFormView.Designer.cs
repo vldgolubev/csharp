@@ -1,117 +1,1 @@
-﻿namespace AutoserviceUI.View
-{
-    partial class LoginFormView
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.butLoginAccept = new System.Windows.Forms.Button();
-            this.butLoginCancel = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(99, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // butLoginAccept
-            // 
-            this.butLoginAccept.Location = new System.Drawing.Point(59, 142);
-            this.butLoginAccept.Name = "butLoginAccept";
-            this.butLoginAccept.Size = new System.Drawing.Size(75, 23);
-            this.butLoginAccept.TabIndex = 1;
-            this.butLoginAccept.Text = "button1";
-            this.butLoginAccept.UseVisualStyleBackColor = true;
-            // 
-            // butLoginCancel
-            // 
-            this.butLoginCancel.Location = new System.Drawing.Point(140, 142);
-            this.butLoginCancel.Name = "butLoginCancel";
-            this.butLoginCancel.Size = new System.Drawing.Size(75, 23);
-            this.butLoginCancel.TabIndex = 2;
-            this.butLoginCancel.Text = "button2";
-            this.butLoginCancel.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(99, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
-            // 
-            // LoginForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.butLoginCancel);
-            this.Controls.Add(this.butLoginAccept);
-            this.Controls.Add(this.textBox1);
-            this.Name = "LoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-        }
-
-        #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button butLoginAccept;
-        private System.Windows.Forms.Button butLoginCancel;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-    }
-}
+﻿namespace AutoserviceUI.View{    partial class LoginFormView    {        /// <summary>        /// Required designer variable.        /// </summary>        private System.ComponentModel.IContainer components = null;        /// <summary>        /// Clean up any resources being used.        /// </summary>        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>        protected override void Dispose(bool disposing)        {            if (disposing && (components != null))            {                components.Dispose();            }            base.Dispose(disposing);        }        #region Windows Form Designer generated code        /// <summary>        /// Required method for Designer support - do not modify        /// the contents of this method with the code editor.        /// </summary>        private void InitializeComponent()        {            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginFormView));            this.txtLogin = new System.Windows.Forms.TextBox();            this.butLoginAccept = new System.Windows.Forms.Button();            this.butLoginCancel = new System.Windows.Forms.Button();            this.txtPassword = new System.Windows.Forms.TextBox();            this.label1 = new System.Windows.Forms.Label();            this.label2 = new System.Windows.Forms.Label();            this.pictureBox1 = new System.Windows.Forms.PictureBox();            this.label3 = new System.Windows.Forms.Label();            this.label4 = new System.Windows.Forms.Label();            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();            this.SuspendLayout();            //             // txtLogin            //             this.txtLogin.Location = new System.Drawing.Point(114, 229);            this.txtLogin.Name = "txtLogin";            this.txtLogin.Size = new System.Drawing.Size(224, 20);            this.txtLogin.TabIndex = 0;            //             // butLoginAccept            //             this.butLoginAccept.Location = new System.Drawing.Point(114, 297);            this.butLoginAccept.Name = "butLoginAccept";            this.butLoginAccept.Size = new System.Drawing.Size(88, 33);            this.butLoginAccept.TabIndex = 1;            this.butLoginAccept.Text = "Войти";            this.butLoginAccept.UseVisualStyleBackColor = true;            //             // butLoginCancel            //             this.butLoginCancel.DialogResult = System.Windows.Forms.DialogResult.No;            this.butLoginCancel.Location = new System.Drawing.Point(246, 297);            this.butLoginCancel.Name = "butLoginCancel";            this.butLoginCancel.Size = new System.Drawing.Size(92, 33);            this.butLoginCancel.TabIndex = 2;            this.butLoginCancel.Text = "Выйти";            this.butLoginCancel.UseVisualStyleBackColor = true;            //             // txtPassword            //             this.txtPassword.Location = new System.Drawing.Point(114, 260);            this.txtPassword.Name = "txtPassword";            this.txtPassword.PasswordChar = '*';            this.txtPassword.Size = new System.Drawing.Size(224, 20);            this.txtPassword.TabIndex = 3;            //             // label1            //             this.label1.AutoSize = true;            this.label1.Location = new System.Drawing.Point(21, 229);            this.label1.Name = "label1";            this.label1.Size = new System.Drawing.Size(41, 13);            this.label1.TabIndex = 4;            this.label1.Text = "Логин:";            //             // label2            //             this.label2.AutoSize = true;            this.label2.Location = new System.Drawing.Point(21, 267);            this.label2.Name = "label2";            this.label2.Size = new System.Drawing.Size(48, 13);            this.label2.TabIndex = 5;            this.label2.Text = "Пароль:";            //             // pictureBox1            //             this.pictureBox1.Image = global::AutoserviceUI.Properties.Resources.logo_main;            this.pictureBox1.Location = new System.Drawing.Point(114, 47);            this.pictureBox1.Name = "pictureBox1";            this.pictureBox1.Size = new System.Drawing.Size(131, 141);            this.pictureBox1.TabIndex = 6;            this.pictureBox1.TabStop = false;            //             // label3            //             this.label3.AutoSize = true;            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));            this.label3.Location = new System.Drawing.Point(19, 191);            this.label3.Name = "label3";            this.label3.Size = new System.Drawing.Size(141, 25);            this.label3.TabIndex = 7;            this.label3.Text = "Авторизация:";            //             // label4            //             this.label4.AutoSize = true;            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));            this.label4.Location = new System.Drawing.Point(31, 9);            this.label4.Name = "label4";            this.label4.Size = new System.Drawing.Size(292, 20);            this.label4.TabIndex = 8;            this.label4.Text = "Станция технического обслуживания";            //             // LoginFormView            //             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;            this.ClientSize = new System.Drawing.Size(355, 342);            this.Controls.Add(this.label4);            this.Controls.Add(this.label3);            this.Controls.Add(this.pictureBox1);            this.Controls.Add(this.label2);            this.Controls.Add(this.label1);            this.Controls.Add(this.txtPassword);            this.Controls.Add(this.butLoginCancel);            this.Controls.Add(this.butLoginAccept);            this.Controls.Add(this.txtLogin);            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));            this.MaximumSize = new System.Drawing.Size(371, 380);            this.MinimumSize = new System.Drawing.Size(371, 380);            this.Name = "LoginFormView";            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;            this.Text = "Авторизация";            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();            this.ResumeLayout(false);            this.PerformLayout();        }        #endregion        private System.Windows.Forms.TextBox txtLogin;        private System.Windows.Forms.Button butLoginAccept;        private System.Windows.Forms.Button butLoginCancel;        private System.Windows.Forms.TextBox txtPassword;        private System.Windows.Forms.Label label1;        private System.Windows.Forms.Label label2;        private System.Windows.Forms.PictureBox pictureBox1;        private System.Windows.Forms.Label label3;        private System.Windows.Forms.Label label4;    }}

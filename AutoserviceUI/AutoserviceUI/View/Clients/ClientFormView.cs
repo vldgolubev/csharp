@@ -1,123 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AutoserviceUI.View
-{
-    public interface IClientInterface
-    {
-        string LastName { get; set; }
-        string FirstName { get; set; }
-        string FathName { get; set; }
-        string Passport { get; set; }
-        string Address { get; set; }
-        string Phone { get; set; }
-        void ClearForm();
-        void CloseForm();
-        void DataGridDataTable(DataTable dt);
-        event EventHandler ButInsertClickEvent;
+﻿using System;using System.Collections.Generic;using System.ComponentModel;using System.Data;using System.Drawing;using System.Linq;using System.Text;using System.Threading.Tasks;using System.Windows.Forms;namespace AutoserviceUI.View{    public interface IClientInterface    {
         event EventHandler ButCancelClickEvent;
-        event EventHandler ButDeleteClickEvent;
-        event EventHandler DataGridClientsUpdateEvent;
-    }
-    public partial class ClientFormView : Form, IClientInterface
-    {
-        public ClientFormView()
-        {
-            InitializeComponent();
-            butCancelClient.Click += butCancelClient_Click;
-            butInsertClient.Click += butInsertClient_Click;
-            butDeleteClient.Click += butDeleteClient_Click;
-            dataGridClient.CellClick += dataGridClient_CellClick;
-            this.Load += ClientFormView_Load;
-        }
 
-        void dataGridClient_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dataGridClient.Rows[e.RowIndex];
-                LastName = row.Cells["OwnerLn"].Value.ToString();
-                FirstName = row.Cells["OwnerFn"].Value.ToString();
-                FathName = row.Cells["OwnerPn"].Value.ToString();
-                Passport = row.Cells["OwnerPassport"].Value.ToString();
-                Address = row.Cells["OwnerAddress"].Value.ToString();
-                Phone = row.Cells["OwnerPhone"].Value.ToString();
-            }
-        }
-        #region Проброс событий
-        void ClientFormView_Load(object sender, EventArgs e)
-        {
-            if (DataGridClientsUpdateEvent != null) DataGridClientsUpdateEvent(this, EventArgs.Empty);
-        }
-        void butDeleteClient_Click(object sender, EventArgs e)
-        {
-            if (ButDeleteClickEvent != null) ButDeleteClickEvent(this, EventArgs.Empty);
-        }
-        void butInsertClient_Click(object sender, EventArgs e)
-        {
-            if (ButInsertClickEvent != null) ButInsertClickEvent(this, EventArgs.Empty);
-        }
-        void butCancelClient_Click(object sender, EventArgs e)
-        {
-            if (ButCancelClickEvent != null) ButCancelClickEvent(this, EventArgs.Empty);
-        }
-        public event EventHandler ButInsertClickEvent;
+        event EventHandler ButDeleteClickEvent;
+
+        event EventHandler ButInsertClickEvent;
+
+        event EventHandler DataGridClientsUpdateEvent;
+
+        string Address { get; set; }
+
+        string FathName { get; set; }
+
+        string FirstName { get; set; }
+
+        string LastName { get; set; }        string Passport { get; set; }        string Phone { get; set; }        void ClearForm();        void CloseForm();        void DataGridDataTable(DataTable dt);    }    public partial class ClientFormView : Form, IClientInterface    {        public ClientFormView()        {            InitializeComponent();            butCancelClient.Click += butCancelClient_Click;            butInsertClient.Click += butInsertClient_Click;            butDeleteClient.Click += butDeleteClient_Click;            dataGridClient.CellClick += dataGridClient_CellClick;            this.Load += ClientFormView_Load;        }
+
         public event EventHandler ButCancelClickEvent;
+
         public event EventHandler ButDeleteClickEvent;
+
+        public event EventHandler ButInsertClickEvent;
+
         public event EventHandler DataGridClientsUpdateEvent;
-        #endregion
-        #region Accessors
-        public string LastName
-        {
-            get
-            {
-                return txtLastName.Text;
-            }
-            set
-            {
-                txtLastName.Text = value;
-            }
-        }
-        public string FirstName
-        {
-            get
-            {
-                return txtFirstName.Text;
-            }
-            set
-            {
-                txtFirstName.Text = value;
-            }
-        }
-        public string FathName
-        {
-            get
-            {
-                return txtFathName.Text;
-            }
-            set
-            {
-                txtFathName.Text = value;
-            }
-        }
-        public string Passport
-        {
-            get
-            {
-                return txtPassport.Text;
-            }
-            set
-            {
-                txtPassport.Text = value;
-            }
-        }
+
         public string Address
         {
             get
@@ -129,6 +34,55 @@ namespace AutoserviceUI.View
                 txtAddress.Text = value;
             }
         }
+
+        public string FathName
+        {
+            get
+            {
+                return txtFathName.Text;
+            }
+            set
+            {
+                txtFathName.Text = value;
+            }
+        }
+
+        public string FirstName
+        {
+            get
+            {
+                return txtFirstName.Text;
+            }
+            set
+            {
+                txtFirstName.Text = value;
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return txtLastName.Text;
+            }
+            set
+            {
+                txtLastName.Text = value;
+            }
+        }
+
+        public string Passport
+        {
+            get
+            {
+                return txtPassport.Text;
+            }
+            set
+            {
+                txtPassport.Text = value;
+            }
+        }
+
         public string Phone
         {
             get
@@ -140,7 +94,6 @@ namespace AutoserviceUI.View
                 txtPhone.Text = value;
             }
         }
-        #endregion
 
         public void ClearForm()
         {
@@ -169,6 +122,24 @@ namespace AutoserviceUI.View
             dataGridClient.Columns[5].HeaderText = "Телефон";
         }
 
+        void butCancelClient_Click(object sender, EventArgs e)
+        {
+            if (ButCancelClickEvent != null) ButCancelClickEvent(this, EventArgs.Empty);
+        }
 
-    }
-}
+        void butDeleteClient_Click(object sender, EventArgs e)
+        {
+            if (ButDeleteClickEvent != null) ButDeleteClickEvent(this, EventArgs.Empty);
+        }
+
+        void butInsertClient_Click(object sender, EventArgs e)
+        {
+            if (ButInsertClickEvent != null) ButInsertClickEvent(this, EventArgs.Empty);
+        }
+
+        void ClientFormView_Load(object sender, EventArgs e)
+        {
+            if (DataGridClientsUpdateEvent != null) DataGridClientsUpdateEvent(this, EventArgs.Empty);
+        }
+
+        void dataGridClient_CellClick(object sender, DataGridViewCellEventArgs e)        {            if (e.RowIndex >= 0)            {                DataGridViewRow row = this.dataGridClient.Rows[e.RowIndex];                LastName = row.Cells["OwnerLn"].Value.ToString();                FirstName = row.Cells["OwnerFn"].Value.ToString();                FathName = row.Cells["OwnerPn"].Value.ToString();                Passport = row.Cells["OwnerPassport"].Value.ToString();                Address = row.Cells["OwnerAddress"].Value.ToString();                Phone = row.Cells["OwnerPhone"].Value.ToString();            }        }        #region Проброс событий        #endregion        #region Accessors        #endregion    }}

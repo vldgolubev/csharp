@@ -1,48 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Windows.Forms;
-using System.Data;
-
-namespace AutoserviceCore
-{
-    public interface ITypeModel
-    {
-        bool InsertTypeModel(string nametype);
+﻿using System;using System.Collections.Generic;using System.Linq;using System.Text;using System.Threading.Tasks;using MySql.Data.MySqlClient;using System.Windows.Forms;using System.Data;namespace AutoserviceCore{    public interface ITypeModel    {
         void DeleteTypeModel(string id, string nametype);
+
         DataTable GetAllTypeModel();
-    }
-    public class TypeModel : Dbconnection,ITypeModel{
 
-        public bool InsertTypeModel(string nametype)
-        {
-            try
-            {
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = connection;
-                    cmd.CommandText = "INSERT INTO typemodel(NameType) VALUES (@nametype)";
-                    cmd.Prepare();
-
-                    cmd.Parameters.AddWithValue("@nametype", nametype);
-
-                    int result = cmd.ExecuteNonQuery();
-                    this.CloseConnection();
-                    if (result > 0) return true;
-                    else return false;
-                }
-                return false;
-            }
-            catch (MySqlException)
-            {
-                this.CloseConnection();
-                return false;
-            }
-        }
+        bool InsertTypeModel(string nametype);    }    public class TypeModel : Dbconnection,ITypeModel{
 
         public void DeleteTypeModel(string id, string nametype)
         {
@@ -71,7 +32,7 @@ namespace AutoserviceCore
         public DataTable GetAllTypeModel()
         {
             DataTable typemodelDt = new DataTable();
-            if(this.OpenConnection() == true)
+            if (this.OpenConnection() == true)
             {
                 string query = "SELECT * FROM typemodel";
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -86,5 +47,5 @@ namespace AutoserviceCore
             }
             return typemodelDt;
         }
-    }
-}
+
+        public bool InsertTypeModel(string nametype)        {            try            {                if (this.OpenConnection() == true)                {                    MySqlCommand cmd = new MySqlCommand();                    cmd.Connection = connection;                    cmd.CommandText = "INSERT INTO typemodel(NameType) VALUES (@nametype)";                    cmd.Prepare();                    cmd.Parameters.AddWithValue("@nametype", nametype);                    int result = cmd.ExecuteNonQuery();                    this.CloseConnection();                    if (result > 0) return true;                    else return false;                }                return false;            }            catch (MySqlException)            {                this.CloseConnection();                return false;            }        }    }}

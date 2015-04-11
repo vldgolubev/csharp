@@ -1,59 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Windows.Forms;
-
-namespace AutoserviceCore
-{
-    public interface IClient
-    {
-        bool InsertClient(string lastname, string firstname, string fathname, string passport, string address, string phone);
+﻿using System;using System.Collections.Generic;using System.Data;using System.Linq;using System.Text;using System.Threading.Tasks;using MySql.Data.MySqlClient;using System.Windows.Forms;namespace AutoserviceCore{    public interface IClient    {
         void DeleteClient(string lastname, string firstname, string fathname, string passport);
+
         DataTable GetAllClients();
-    }
-    public class Client : Dbconnection,IClient
-    {
 
-        public bool InsertClient(string lastname, string firstname, string fathname, string passport, string address, string phone)
-        {
-           try
-           {
-               if (this.OpenConnection() == true)
-               {
-                   MySqlCommand cmd = new MySqlCommand();
-                   cmd.Connection = connection;
-                   cmd.CommandText = "INSERT INTO owners(OwnerLn, OwnerFn, OwnerPn, OwnerPassport, OwnerAddress, OwnerPhone) VALUES (@ownerln, @ownerfn, @ownerpn, @ownerpassport, @owneraddress,@ownerphone)";
-                   cmd.Prepare();
-
-                   cmd.Parameters.AddWithValue("@ownerln", lastname);
-                   cmd.Parameters.AddWithValue("@ownerfn", firstname);
-                   cmd.Parameters.AddWithValue("@ownerpn", fathname);
-                   cmd.Parameters.AddWithValue("@ownerpassport", passport);
-                   cmd.Parameters.AddWithValue("@owneraddress", address);
-                   cmd.Parameters.AddWithValue("@ownerphone", phone);
-
-                   int result = cmd.ExecuteNonQuery();
-                   this.CloseConnection();
-                   if (result > 0) return true;
-                   else return false;
-               }
-               return false;
-           }
-           catch (MySqlException ex)
-           {
-               this.CloseConnection();
-               switch (ex.Number)
-               {
-                   case 1062: MessageBox.Show("Клиент уже существует!");
-                       break;
-               }
-               return false;
-           }
-        }
+        bool InsertClient(string lastname, string firstname, string fathname, string passport, string address, string phone);    }    public class Client : Dbconnection,IClient    {
 
         public void DeleteClient(string lastname, string firstname, string fathname, string passport)
         {
@@ -95,10 +45,10 @@ namespace AutoserviceCore
                     dr.Close();
                 }
 
-             this.CloseConnection();
-             return clientsDt;
+                this.CloseConnection();
+                return clientsDt;
             }
             return clientsDt;
         }
-    }
-}
+
+        public bool InsertClient(string lastname, string firstname, string fathname, string passport, string address, string phone)        {           try           {               if (this.OpenConnection() == true)               {                   MySqlCommand cmd = new MySqlCommand();                   cmd.Connection = connection;                   cmd.CommandText = "INSERT INTO owners(OwnerLn, OwnerFn, OwnerPn, OwnerPassport, OwnerAddress, OwnerPhone) VALUES (@ownerln, @ownerfn, @ownerpn, @ownerpassport, @owneraddress,@ownerphone)";                   cmd.Prepare();                   cmd.Parameters.AddWithValue("@ownerln", lastname);                   cmd.Parameters.AddWithValue("@ownerfn", firstname);                   cmd.Parameters.AddWithValue("@ownerpn", fathname);                   cmd.Parameters.AddWithValue("@ownerpassport", passport);                   cmd.Parameters.AddWithValue("@owneraddress", address);                   cmd.Parameters.AddWithValue("@ownerphone", phone);                   int result = cmd.ExecuteNonQuery();                   this.CloseConnection();                   if (result > 0) return true;                   else return false;               }               return false;           }           catch (MySqlException ex)           {               this.CloseConnection();               switch (ex.Number)               {                   case 1062: MessageBox.Show("Клиент уже существует!");                       break;               }               return false;           }        }    }}

@@ -1,0 +1,6 @@
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceInstaller\bin\Release\ru-Ru\AutoserviceInstaller.msi
+C:\GitHub\Csharp\AutoserviceUI\AutoserviceInstaller\bin\Release\ru-Ru\AutoserviceInstaller.wixpdb
+obj\Release\Product.wixobj
+obj\Release\AutoserviceInstaller.wixproj.BindContentsFileListru-Ru.txt
+obj\Release\AutoserviceInstaller.wixproj.BindOutputsFileListru-Ru.txt
+obj\Release\AutoserviceInstaller.wixproj.BindBuiltOutputsFileListru-Ru.txt

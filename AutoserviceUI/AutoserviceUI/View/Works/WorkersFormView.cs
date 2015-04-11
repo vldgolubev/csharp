@@ -1,71 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AutoserviceUI.View
-{
-    public interface IWorkersInterface
-    {
-        string LastName { get; set; }
-        string FirstName { get; set; }
-        string PathName { get; set; }
-        string Passport { get; set; }
-        string Address { get; set; }
-        string Phone { get; set; }
-        void ClearForm();
-        void CloseForm();
-        void DataGridDataTable(DataTable dt);
-        event EventHandler ButInsertClickEvent;
+﻿using System;using System.Collections.Generic;using System.ComponentModel;using System.Data;using System.Drawing;using System.Linq;using System.Text;using System.Threading.Tasks;using System.Windows.Forms;/* Интерфейс формы Рабочие*/namespace AutoserviceUI.View{    public interface IWorkersInterface    {
         event EventHandler ButCancelClickEvent;
+
         event EventHandler ButDeleteClickEvent;
+
+        event EventHandler ButInsertClickEvent;
+
         event EventHandler DataGridWorkersUpdateEvent;
-    }
-    public partial class WorkersFormView : Form, IWorkersInterface
-    {
-        public WorkersFormView()
-        {
-            InitializeComponent();
-            butCancel.Click += butCancel_Click;
-            butDelete.Click += butDelete_Click;
-            butInsert.Click += butInsert_Click;
-            this.Load += WorkersFormView_Load;
-            dataGridWorkers.CellClick += dataGridWorkers_CellClick;
-        }
 
-        void dataGridWorkers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dataGridWorkers.Rows[e.RowIndex];
-                LastName = row.Cells["WorkerLn"].Value.ToString();
-                FirstName = row.Cells["WorkerFn"].Value.ToString();
-                PathName = row.Cells["WorkerPn"].Value.ToString();
-                Passport = row.Cells["WorkerPassport"].Value.ToString();
-                Address = row.Cells["WorkerAddress"].Value.ToString();
-                Phone = row.Cells["WorkerPhone"].Value.ToString();
+        string Address { get; set; }
 
-            }
-        }
+        string FirstName { get; set; }
 
-        
+        string LastName { get; set; }
+        string Passport { get; set; }
 
-        
-        #region Аксессоры
-        public string LastName
+        string PathName { get; set; }        string Phone { get; set; }        void ClearForm();        void CloseForm();        void DataGridDataTable(DataTable dt);    }    public partial class WorkersFormView : Form, IWorkersInterface    {        public WorkersFormView()        {            InitializeComponent();            butCancel.Click += butCancel_Click;            butDelete.Click += butDelete_Click;            butInsert.Click += butInsert_Click;            this.Load += WorkersFormView_Load;            dataGridWorkers.CellClick += dataGridWorkers_CellClick;        }
+
+        public event EventHandler ButCancelClickEvent;
+
+        public event EventHandler ButDeleteClickEvent;
+
+        public event EventHandler ButInsertClickEvent;
+
+        public event EventHandler DataGridWorkersUpdateEvent;
+
+        public string Address
         {
             get
             {
-                return txtLastName.Text;
+                return txtAddress.Text;
             }
             set
             {
-                txtLastName.Text = value;
+                txtAddress.Text = value;
             }
         }
 
@@ -81,15 +48,15 @@ namespace AutoserviceUI.View
             }
         }
 
-        public string PathName
+        public string LastName
         {
             get
             {
-                return txtFathName.Text;
+                return txtLastName.Text;
             }
             set
             {
-                txtFathName.Text = value;
+                txtLastName.Text = value;
             }
         }
 
@@ -105,15 +72,15 @@ namespace AutoserviceUI.View
             }
         }
 
-        public string Address
+        public string PathName
         {
             get
             {
-                return txtAddress.Text;
+                return txtFathName.Text;
             }
             set
             {
-                txtAddress.Text = value;
+                txtFathName.Text = value;
             }
         }
 
@@ -128,31 +95,7 @@ namespace AutoserviceUI.View
                 txtPhone.Text = value;
             }
         }
-        #endregion
-        #region Проброс событий
-        void WorkersFormView_Load(object sender, EventArgs e)
-        {
-            if (DataGridWorkersUpdateEvent != null) DataGridWorkersUpdateEvent(this, EventArgs.Empty);
-        }
-        void butInsert_Click(object sender, EventArgs e)
-        {
-            if (ButInsertClickEvent != null) ButInsertClickEvent(this, EventArgs.Empty);
-        }
 
-        void butDelete_Click(object sender, EventArgs e)
-        {
-            if (ButDeleteClickEvent != null) ButDeleteClickEvent(this, EventArgs.Empty);
-        }
-
-        void butCancel_Click(object sender, EventArgs e)
-        {
-            if (ButCancelClickEvent != null) ButCancelClickEvent(this, EventArgs.Empty);
-        }
-        public event EventHandler ButInsertClickEvent;
-        public event EventHandler ButCancelClickEvent;
-        public event EventHandler ButDeleteClickEvent;
-        public event EventHandler DataGridWorkersUpdateEvent;
-        #endregion
         public void ClearForm()
         {
             LastName = "";
@@ -162,10 +105,12 @@ namespace AutoserviceUI.View
             Address = "";
             Phone = "";
         }
+
         public void CloseForm()
         {
             this.Close();
         }
+
         public void DataGridDataTable(DataTable dt)
         {
             dataGridWorkers.DataSource = dt;
@@ -177,5 +122,20 @@ namespace AutoserviceUI.View
             dataGridWorkers.Columns[4].Width = 275;
             dataGridWorkers.Columns[5].HeaderText = "Телефон";
         }
-    }
-}
+
+        void butCancel_Click(object sender, EventArgs e)
+        {
+            if (ButCancelClickEvent != null) ButCancelClickEvent(this, EventArgs.Empty);
+        }
+
+        void butDelete_Click(object sender, EventArgs e)
+        {
+            if (ButDeleteClickEvent != null) ButDeleteClickEvent(this, EventArgs.Empty);
+        }
+
+        void butInsert_Click(object sender, EventArgs e)
+        {
+            if (ButInsertClickEvent != null) ButInsertClickEvent(this, EventArgs.Empty);
+        }
+
+        void dataGridWorkers_CellClick(object sender, DataGridViewCellEventArgs e)        {            if (e.RowIndex >= 0)            {                DataGridViewRow row = this.dataGridWorkers.Rows[e.RowIndex];                LastName = row.Cells["WorkerLn"].Value.ToString();                FirstName = row.Cells["WorkerFn"].Value.ToString();                PathName = row.Cells["WorkerPn"].Value.ToString();                Passport = row.Cells["WorkerPassport"].Value.ToString();                Address = row.Cells["WorkerAddress"].Value.ToString();                Phone = row.Cells["WorkerPhone"].Value.ToString();            }        }        #region Проброс событий        void WorkersFormView_Load(object sender, EventArgs e)        {            if (DataGridWorkersUpdateEvent != null) DataGridWorkersUpdateEvent(this, EventArgs.Empty);        }        #endregion    }}

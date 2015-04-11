@@ -1,198 +1,1 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AutoserviceUI
-{
-    public interface IMainForm
-    {
-        string SelectedAuto { get; set; }
-        string Search { get;}
-        string SerchValue { get; set; }
-        bool RadioNumberChecked { get; }
-        bool RadioLastNameChecked { get; }
-        bool RadioPassportNumberChecked { get; }
-        event EventHandler AdminFormClick;
-        event EventHandler ModelsFormClick;
-        event EventHandler MarksFormClick;
-        event EventHandler TypesFormClick;
-        event EventHandler WorksTypeFormClick;
-        event EventHandler WorksFormClick;
-        event EventHandler WorkersFormClick;
-        event EventHandler OrdersFormClick;
-        event EventHandler ClientFormClick;
-        event EventHandler AutoClientFormClick;
-        event EventHandler LoadMainFromEvent;
-        event EventHandler UpdateCmbWorkerEvent;
-        event EventHandler ChoiceAutoSearch;
-        void UncompleteOrdersCount(int count);
-        void UpdateCmbWorker(ArrayList workers);
-    }
-    public partial class MainForm : Form, IMainForm
-    {
-        public MainForm()
-        {
-            InitializeComponent();
-            AdminsMenuItem.Click += AdminsMenuItem_Click;
-            ModelsMenuItem.Click += ModelsMenuItem_Click;
-            MarksMenuItem.Click+=MarksMenuItem_Click;
-            TypesMenuItem.Click += TypesMenuItem_Click;
-            butSearchAuto.Click += butSearchAuto_Click;
-
-            WorkCategoryMenuItem.Click += WorkCategoryMenuItem_Click;
-            WorksMenuItem.Click += WorksMenuItem_Click;
-            WorkersMenuItem.Click += WorkersMenuItem_Click;
-            ClientMenuItem.Click += ClientMenuItem_Click;
-            AutoClientMenuItem.Click += AutoClientMenuItem_Click;
-            OrdersMenuItem.Click += OrdersMenuItem_Click;
-            this.Load += MainForm_Load;
-
-        }
-        #region MainForm Events
-        void butSearchAuto_Click(object sender, EventArgs e)
-        {
-            if (ChoiceAutoSearch != null) ChoiceAutoSearch(this, EventArgs.Empty);
-        }
-        void MainForm_Load(object sender, EventArgs e)
-        {
-            if (LoadMainFromEvent != null) LoadMainFromEvent(this, EventArgs.Empty);
-            if (UpdateCmbWorkerEvent != null) UpdateCmbWorkerEvent(this, EventArgs.Empty);
-        }
-        void OrdersMenuItem_Click(object sender, EventArgs e)
-        {
-            if (OrdersFormClick != null) OrdersFormClick(this, EventArgs.Empty);
-        }
-        void WorkersMenuItem_Click(object sender, EventArgs e)
-        {
-            if (WorkersFormClick != null) WorkersFormClick(this, EventArgs.Empty);
-        }
-        void WorksMenuItem_Click(object sender, EventArgs e)
-        {
-            if(WorksFormClick != null) WorksFormClick(this,EventArgs.Empty);
-        }
-        void WorkCategoryMenuItem_Click(object sender, EventArgs e)
-        {
-            if (WorksTypeFormClick != null) WorksTypeFormClick(this, EventArgs.Empty);
-        }
-        void TypesMenuItem_Click(object sender, EventArgs e)
-        {
-            if (TypesFormClick != null) TypesFormClick(this, EventArgs.Empty);
-        }
-        void MarksMenuItem_Click(object sender, EventArgs e)
-        {
- 	       if(MarksFormClick !=null) MarksFormClick(this,EventArgs.Empty);}
-        void ModelsMenuItem_Click(object sender, EventArgs e)
-        {
-           if( ModelsFormClick != null) ModelsFormClick(this,EventArgs.Empty);
-        }
-        void AdminsMenuItem_Click(object sender, EventArgs e)
-        {
-            if (AdminFormClick != null) AdminFormClick(this, EventArgs.Empty);
-        }
-        void AutoClientMenuItem_Click(object sender, EventArgs e)
-        {
-            if (AutoClientFormClick != null) AutoClientFormClick(this, EventArgs.Empty);
-        }
-        void ClientMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            if (ClientFormClick != null) ClientFormClick(this, EventArgs.Empty);
-        }
-
-        public event EventHandler OrdersFormClick;
-        public event EventHandler AdminFormClick;
-        public event EventHandler ModelsFormClick;
-        public event EventHandler MarksFormClick;
-        public event EventHandler TypesFormClick;
-        public event EventHandler WorksTypeFormClick;
-        public event EventHandler WorksFormClick;
-        public event EventHandler WorkersFormClick;
-        public event EventHandler ClientFormClick;
-        public event EventHandler AutoClientFormClick; 
-        public event EventHandler LoadMainFromEvent;
-        public event EventHandler UpdateCmbWorkerEvent;
-        public event EventHandler ChoiceAutoSearch;
-        #endregion
-
-        public void UncompleteOrdersCount(int count)
-        {
-            toolCountUncompleteOrders.Text = count.ToString();
-        }
-        public void UpdateCmbWorker(ArrayList workers)
-        {
-            cmbWorker.DataSource = workers;
-            cmbWorker.DisplayMember = "Worker_fio";
-            cmbWorker.ValueMember = "Worker_id";
-        }
-
-
-
-        #region ComboSearch
-        public bool RadioNumberChecked
-        {
-            get {
-                if (rdoNumberAuto.Checked == true) return true;
-                return false;
-                }
-        }
-
-
-        public bool RadioLastNameChecked
-        {
-            get {
-                if (rdoLastName.Checked == true) return true;
-                return false;
-                }
-        }
-
-        public bool RadioPassportNumberChecked
-        {
-            get {
-                if (rdoPassportNum.Checked == true) return true;
-                return false;
-                }
-        }
-        #endregion
-
-        public string Search
-        {
-            get { return txtSearch.Text; }
-        }
-
-
-        public string SerchValue
-        {
-            get
-            {
-                return txtSearchValue.Text;
-            }
-            set
-            {
-                txtSearchValue.Text = value.ToString();
-            }
-        }
-
-        public string SelectedAuto
-        {
-            get
-            {
-                return txtSelectedAuto.Text;
-            }
-            set
-            {
-                try
-                {
-                    txtSelectedAuto.Text = value;
-                }
-                catch (NullReferenceException) { MessageBox.Show("Автомобиль не выбран!"); }
-            }
-        }
-    }
-}
+﻿using System;using System.Collections;using System.Collections.Generic;using System.ComponentModel;using System.Data;using System.Drawing;using System.Linq;using System.Text;using System.Threading.Tasks;using System.Windows.Forms;namespace AutoserviceUI{    /* Интерфейс главной формы */    public interface IMainForm    {        event EventHandler AdminFormClick;        event EventHandler AutoClientFormClick;        event EventHandler ButSearchCompleteEvent;        event EventHandler ButSearchMarkAutoEvent;        event EventHandler ButSearchUnCompleteEvent;        event EventHandler ButSerchNumberAutoEvent;        event EventHandler ButSerchOwnerLastNameEvent;        event EventHandler ButSerchWorkerLastNameEvent;        event EventHandler ButUpdateClickEvent;        event EventHandler ChoiceAutoSearch;        event EventHandler ClientFormClick;        event EventHandler DeleteOrderEvent;        event EventHandler InsertOrderEvent;        event EventHandler LoadMainFromEvent;        event EventHandler MarksFormClick;        event EventHandler ModelsFormClick;        event EventHandler OrdersFormClick;        event EventHandler TypesFormClick;        event EventHandler UpdateCmbWorkerEvent;        event EventHandler UpdateDataGridEvent;        event EventHandler WorkersFormClick;        event EventHandler WorksFormClick;        event EventHandler WorksTypeFormClick;        string DateTimeComplete { get; }        int GetAutoID { get; }        int GetWorkerID { get; }        bool RadioLastNameChecked { get; }        bool RadioNumberChecked { get; }        bool RadioPassportNumberChecked { get; }        string Search { get; }        string SelectedAuto { get; set; }        string SelectedOrderID { get; set; }        string SerchValue { get; set; }        string TxtSearchByMarkAuto { get; }        string TxtSearchByNumberAuto { get; }        string TxtSearchByOwnerLastName { get; }        string TxtSearchByWorkerLastName { get; }        void ApplicationClose();        void UncompleteOrdersCount(int count);        void UpdateCmbWorker(ArrayList workers);        void UpdateDataGrid(DataTable dt);    }    public partial class MainForm : Form, IMainForm    {        public MainForm()        {            InitializeComponent();            AdminsMenuItem.Click += AdminsMenuItem_Click;            ModelsMenuItem.Click += ModelsMenuItem_Click;            MarksMenuItem.Click+=MarksMenuItem_Click;            TypesMenuItem.Click += TypesMenuItem_Click;            butSearchAuto.Click += butSearchAuto_Click;            WorkCategoryMenuItem.Click += WorkCategoryMenuItem_Click;            WorksMenuItem.Click += WorksMenuItem_Click;            WorkersMenuItem.Click += WorkersMenuItem_Click;            ClientMenuItem.Click += ClientMenuItem_Click;            AutoClientMenuItem.Click += AutoClientMenuItem_Click;            OrdersMenuItem.Click += OrdersMenuItem_Click;            this.Load += MainForm_Load;            butInsertOrder.Click += butInsertOrder_Click;            butDeleteOrder.Click += butDeleteOrder_Click;            dataGridOrder.CellClick += dataGridOrder_CellClick;            butUpdateOrder.Click += butUpdateOrder_Click;            /* Поиск*/            butSerchWorkerLastName.Click += butSerchWorkerLastName_Click;            butSerchMarkAuto.Click += butSerchMarkAuto_Click;            butSerchOwnerLastName.Click += butSerchOwnerLastName_Click;            butSerchNumberAuto.Click += butSerchNumberAuto_Click;            butSearchComplete.Click += butSearchComplete_Click;            butSearchUnComplete.Click += butSearchUnComplete_Click;            this.FormClosing += MainForm_FormClosing;            /* -- -- */        }        public event EventHandler AdminFormClick;        public event EventHandler AutoClientFormClick;        public event EventHandler ButSearchCompleteEvent;        public event EventHandler ButSearchMarkAutoEvent;        public event EventHandler ButSearchUnCompleteEvent;        public event EventHandler ButSerchNumberAutoEvent;        public event EventHandler ButSerchOwnerLastNameEvent;        public event EventHandler ButSerchWorkerLastNameEvent;        public event EventHandler ButUpdateClickEvent;        public event EventHandler ChoiceAutoSearch;        public event EventHandler ClientFormClick;        public event EventHandler DeleteOrderEvent;        public event EventHandler InsertOrderEvent;        public event EventHandler LoadMainFromEvent;        public event EventHandler MarksFormClick;        public event EventHandler ModelsFormClick;        public event EventHandler OrdersFormClick;        public event EventHandler TypesFormClick;        public event EventHandler UpdateCmbWorkerEvent;        public event EventHandler UpdateDataGridEvent;        public event EventHandler WorkersFormClick;        public event EventHandler WorksFormClick;        public event EventHandler WorksTypeFormClick;        public string DateTimeComplete        {            get            {                return dateTimeComplete.Value.Date.ToString("yyyy-MM-dd HH:mm");            }        }        public int GetAutoID        {            get { return Convert.ToInt32(txtSearchValue.Text); }        }        public int GetWorkerID        {            get { return Convert.ToInt32(cmbWorker.SelectedValue); }        }        public bool RadioLastNameChecked        {            get            {                if (rdoLastName.Checked == true) return true;                return false;            }        }        public bool RadioNumberChecked        {            get            {                if (rdoNumberAuto.Checked == true) return true;                return false;            }        }        public bool RadioPassportNumberChecked        {            get            {                if (rdoPassportNum.Checked == true) return true;                return false;            }        }        public string Search        {            get { return txtSearch.Text; }        }        public string SelectedAuto        {            get            {                return txtSelectedAuto.Text;            }            set            {                try                {                    txtSelectedAuto.Text = value;                }                catch (NullReferenceException) { MessageBox.Show("Автомобиль не выбран!"); }            }        }        public string SelectedOrderID        {            get            {                return txtSelectedOrderID.Text;            }            set            {                txtSelectedOrderID.Text = value.ToString();            }        }        public string SerchValue        {            get            {                return txtSearchValue.Text;            }            set            {                txtSearchValue.Text = value.ToString();            }        }        public string TxtSearchByMarkAuto        {            get { return txtSearchByMarkAuto.Text; }        }        public string TxtSearchByNumberAuto        {            get { return txtSearchByNumberAuto.Text; }        }        public string TxtSearchByOwnerLastName        {            get { return txtSearchByOwnerLastName.Text; }        }        public string TxtSearchByWorkerLastName        {            get { return txtSearchByWorkerLastName.Text; }        }        public void ApplicationClose()        {            Application.Exit();        }        void IMainForm.UpdateDataGrid(DataTable dt)        {            dataGridOrder.DataSource = dt;            dataGridOrder.Columns[0].Visible = false;            dataGridOrder.Columns[1].HeaderText = "Мастер";            dataGridOrder.Columns[1].Width = 250;            dataGridOrder.Columns[2].HeaderText = "Автомобиль";            dataGridOrder.Columns[2].Width = 250;            dataGridOrder.Columns[3].HeaderText = "Заказчик";            dataGridOrder.Columns[3].Width = 250;            dataGridOrder.Columns[4].HeaderText = "ГРЗ";            dataGridOrder.Columns[5].HeaderText = "Сумма заказа";            dataGridOrder.Columns[5].Width = 230;            dataGridOrder.Columns[6].HeaderText = "Дата обращения";            dataGridOrder.Columns[7].HeaderText = "Дата выполнения";        }        public void UncompleteOrdersCount(int count)        {            toolCountUncompleteOrders.Text = count.ToString();        }        public void UpdateCmbWorker(ArrayList workers)        {            cmbWorker.DataSource = workers;            cmbWorker.DisplayMember = "Worker_fio";            cmbWorker.ValueMember = "Worker_id";        }        void AdminsMenuItem_Click(object sender, EventArgs e)        {            if (AdminFormClick != null) AdminFormClick(this, EventArgs.Empty);        }        void AutoClientMenuItem_Click(object sender, EventArgs e)        {            if (AutoClientFormClick != null) AutoClientFormClick(this, EventArgs.Empty);        }        void butDeleteOrder_Click(object sender, EventArgs e)        {            if (DeleteOrderEvent != null) DeleteOrderEvent(this, EventArgs.Empty);        }        void butInsertOrder_Click(object sender, EventArgs e)        {            if (InsertOrderEvent != null) InsertOrderEvent(this, EventArgs.Empty);        }        void butSearchAuto_Click(object sender, EventArgs e)        {            if (ChoiceAutoSearch != null) ChoiceAutoSearch(this, EventArgs.Empty);        }        void butSearchComplete_Click(object sender, EventArgs e)        {            if (ButSearchCompleteEvent != null) ButSearchCompleteEvent(this, EventArgs.Empty);        }        void butSearchUnComplete_Click(object sender, EventArgs e)        {            if (ButSearchUnCompleteEvent != null) ButSearchUnCompleteEvent(this, EventArgs.Empty);        }        void butSerchMarkAuto_Click(object sender, EventArgs e)        {            if (ButSearchMarkAutoEvent != null) ButSearchMarkAutoEvent(this, EventArgs.Empty);        }        void butSerchNumberAuto_Click(object sender, EventArgs e)        {            if (ButSerchNumberAutoEvent != null) ButSerchNumberAutoEvent(this, EventArgs.Empty);        }        void butSerchOwnerLastName_Click(object sender, EventArgs e)        {            if (ButSerchOwnerLastNameEvent != null) ButSerchOwnerLastNameEvent(this, EventArgs.Empty);        }        void butSerchWorkerLastName_Click(object sender, EventArgs e)        {            if (ButSerchWorkerLastNameEvent != null) ButSerchWorkerLastNameEvent(this, EventArgs.Empty);        }        void butUpdateOrder_Click(object sender, EventArgs e)        {            if (ButUpdateClickEvent != null) ButUpdateClickEvent(this, EventArgs.Empty);        }        void ClientMenuItem_Click(object sender, EventArgs e)        {            if (ClientFormClick != null) ClientFormClick(this, EventArgs.Empty);        }        void dataGridOrder_CellClick(object sender, DataGridViewCellEventArgs e)        {            if (e.RowIndex >= 0)            {                DataGridViewRow row = this.dataGridOrder.Rows[e.RowIndex];                SelectedOrderID = row.Cells["OrderID"].Value.ToString();            }        }        void MainForm_FormClosing(object sender, FormClosingEventArgs e)        {            DialogResult result = MessageBox.Show("Вы действительно хотите закрыть программу?","Выход",MessageBoxButtons.YesNo,MessageBoxIcon.Question);            if (result == DialogResult.Yes) e.Cancel = false;            else e.Cancel = true;        }        #region MainForm Events        void MainForm_Load(object sender, EventArgs e)        {            if (LoadMainFromEvent != null) LoadMainFromEvent(this, EventArgs.Empty);            if (UpdateCmbWorkerEvent != null) UpdateCmbWorkerEvent(this, EventArgs.Empty);            if (UpdateDataGridEvent != null) UpdateDataGridEvent(this, EventArgs.Empty);        }        void MarksMenuItem_Click(object sender, EventArgs e)        {            if (MarksFormClick != null) MarksFormClick(this, EventArgs.Empty);        }        void ModelsMenuItem_Click(object sender, EventArgs e)        {            if (ModelsFormClick != null) ModelsFormClick(this, EventArgs.Empty);        }        void OrdersMenuItem_Click(object sender, EventArgs e)        {            if (OrdersFormClick != null) OrdersFormClick(this, EventArgs.Empty);        }        void TypesMenuItem_Click(object sender, EventArgs e)        {            if (TypesFormClick != null) TypesFormClick(this, EventArgs.Empty);        }        void WorkCategoryMenuItem_Click(object sender, EventArgs e)        {            if (WorksTypeFormClick != null) WorksTypeFormClick(this, EventArgs.Empty);        }        void WorkersMenuItem_Click(object sender, EventArgs e)        {            if (WorkersFormClick != null) WorkersFormClick(this, EventArgs.Empty);        }        void WorksMenuItem_Click(object sender, EventArgs e)        {            if(WorksFormClick != null) WorksFormClick(this,EventArgs.Empty);        }        #endregion    }}
